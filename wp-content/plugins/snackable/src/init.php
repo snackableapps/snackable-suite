@@ -62,3 +62,5 @@ function snackable_editor_assets() { // phpcs:ignore
 
 // Hook: Editor assets.
 add_action( 'enqueue_block_editor_assets', 'snackable_editor_assets' );
+
+
