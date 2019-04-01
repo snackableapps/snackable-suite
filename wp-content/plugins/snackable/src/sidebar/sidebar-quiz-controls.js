@@ -12,12 +12,17 @@ const QuizStore = {
         }  
     }),
 
+    deleteTopic: (id) => () => {
+        dispatch('snackable/quiz').deleteTopic(id);
+        const data = select('snackable/quiz').serialize(); 
+        wp.data.dispatch( 'core/editor' ).editPost(
+            { meta: { snackable_quiz_topics : data } }
+        );
+    },
+
     setTopic: (id) => (value) => {
         dispatch('snackable/quiz').setTopic(id, value);
         const data = select('snackable/quiz').serialize(); 
-
-        console.log('DATA: ', data);
-
         wp.data.dispatch( 'core/editor' ).editPost(
             { meta: { snackable_quiz_topics : data } }
         );
@@ -31,7 +36,9 @@ const SnackalbeQuizListItem =  compose(QuizStore.getTopics)(({id, topic}) => {
                 value={ topic }
                 onChange={ QuizStore.setTopic(id) }
             />
-            <Button className="components-button editor-post-preview is-button is-default">Delete</Button>
+            <Button
+                onClick={QuizStore.deleteTopic(id)}
+            className="components-button editor-post-preview is-button is-default">Delete</Button>
     </li>;
 });
 

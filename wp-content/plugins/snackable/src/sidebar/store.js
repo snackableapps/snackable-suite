@@ -33,13 +33,20 @@ const actions = {
         };
 
     },
+    deleteTopic(id) {
+        return {
+            type: 'DELETE_TOPIC', 
+            id
+        }
+    }
 };
 
 registerStore( 'snackable/quiz', {
     reducer( state = DEFAULT_STATE, action ) {
+        let newTopics = Object.assign({}, state.topics);
+        
         switch ( action.type ) {
             case 'SET_TOPIC':
-                const newTopics = Object.assign({}, state.topics);
                 newTopics[action.id] = {
                     id: action.id,
                     topic: action.topic
@@ -51,6 +58,12 @@ registerStore( 'snackable/quiz', {
                     ...state,
                     topics: newTopics
                 };
+            case 'DELETE_TOPIC':
+                delete newTopics[action.id];
+                return {
+                    ...state, 
+                    topics: newTopics
+                }
             case 'SET_LOADED':
                 return {
                     ...action.data,
