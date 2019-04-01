@@ -5,10 +5,11 @@ const DEFAULT_STATE = {
     topics: {
         'topic': {
             id: 'topic',
-            name: 'topic'
+            topic: 'topic'
         }
     },
     questions: {},
+    loaded: false,
 };
 
 const actions = {
@@ -19,21 +20,20 @@ const actions = {
             topic
         };
     },
+    load( json ) {
+        let data = {}; 
+        try {
+            data = JSON.parse(json);
+        } catch (e) {
+            data = Object.assign({}, DEFAULT_STATE);
+        }
+        return {
+            type: 'SET_LOADED',
+            data
+        };
 
+    },
 };
-
-// const encoded = select('core/editor').getEditedPostAttribute( 'meta' )['snackable_quiz_topics'];
-
-/*
-
-        const newValue = JSON.stringify(newTopics);
-        console.log(key, newValue);
-
-        dispatch( 'core/editor' ).editPost(
-            { meta: { key : newValue } }
-        );
-
-*/
 
 registerStore( 'snackable/quiz', {
     reducer( state = DEFAULT_STATE, action ) {
@@ -44,11 +44,18 @@ registerStore( 'snackable/quiz', {
                     id: action.id,
                     topic: action.topic
                 };
+                
+                console.log('ACTION', action, state);
 
                 return {
                     ...state,
                     topics: newTopics
                 };
+            case 'SET_LOADED':
+                return {
+                    ...action.data,
+                    loaded: true
+                }
         }
 
         return state;
@@ -61,6 +68,16 @@ registerStore( 'snackable/quiz', {
             const { topics } = state;
             return Object.values(topics).sort( (id) => id); 
         },
+
+        serialize( state ) {
+            const data = Object.assign({}, state);
+            delete data.loaded;
+            return JSON.stringify(data);
+        },
+
+        isLoaded ({ loaded }) {
+            return loaded;
+        }
     },
 
     controls: {
