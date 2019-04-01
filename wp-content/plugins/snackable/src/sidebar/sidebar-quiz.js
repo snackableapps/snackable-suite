@@ -15,6 +15,10 @@ const { PluginSidebar, PluginSidebarMoreMenuItem  } = wp.editPost;
 const { Fragment } = wp.element;
 // const { select } = wp.data;
 
+import { SnackalbeQuizList } from './sidebar-quiz-controls';
+const { Panel, PanelBody, PanelRow } = wp.components;
+
+
 const PLUGIN_NAME = 'plugin-snackable-quiz';
 const TITLE = 'Snackable Quiz Sidebar'; 
 registerPlugin(PLUGIN_NAME, {
@@ -31,7 +35,19 @@ registerPlugin(PLUGIN_NAME, {
                         icon="admin-post"
                         title={ __(TITLE) }
                     >
-                        Meta field
+                        
+                    <Panel>
+                        <PanelBody
+                        title="Quiz Topics"
+                        icon="welcome-widgets-menus"
+                        initialOpen={ true }
+                        >
+                        <PanelRow>
+                            <SnackalbeQuizList />
+                        </PanelRow>
+                        </PanelBody>
+                    </Panel>
+
                     </PluginSidebar>
             </Fragment>;
     },
