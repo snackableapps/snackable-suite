@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name: snackable-quiz — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: snackable-quiz — is a Gutenberg plugin created via create-guten-block.
+ * Plugin Name: Snackable Suite
+ * Plugin URI: https://github.com/snackableapps
+ * Description:  Snackable Suite
  * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
+ * Author URI: https://snackable.app
  * Version: 1.0.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *
- * @package CGB
+ * @package snackable
  */
 
 // Exit if accessed directly.
