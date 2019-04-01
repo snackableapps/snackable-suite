@@ -42,6 +42,15 @@ const SnackalbeQuizList =  compose(QuizStore.getTopics)(( { topics } ) => {
         <ul>
             {topicKeys.map( ({id, topic}) => <SnackalbeQuizListItem key={id} id={id} topic={topic}/> )}
         </ul>
+
+        <Button 
+            onClick={() => {
+                QuizStore.setTopic('id_' + Date.now())('New Topic')    
+            }}
+            className="components-button editor-post-preview is-button is-default">
+
+            Add
+        </Button>
     </div>;
 });
 
