@@ -46,32 +46,16 @@ registerBlockType( 'snackable/block-snackable-quiz', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	edit: class SnackableQuiz extends Component {
-		constructor() {
-			super( ...arguments );
-		}
-
-		childCount = () => {
-			const { clientId } = this.props;
-			const { select } = wp.data;
-
-			const parentBlock = select( 'core/editor' ).getBlocksByClientId( clientId )[ 0 ];
-			const childBlocks = parentBlock.innerBlocks;
-			console.log(childBlocks);
-			return childBlocks.length;
-		}
-
-		render () {
+	edit: ( props ) => {
 			return <div>
 				<section>
-					<p>Dankmeme { this.childCount() }</p>
+					<p>Dankmeme </p>
 				</section>
 				<div>
 					<InnerBlocks />
 				</div>
 			</div>
-		}
-	},
+		},
 
 	/**
 	 * The save function defines the way in which the different attributes should be combined

@@ -64,3 +64,21 @@ function snackable_editor_assets() { // phpcs:ignore
 add_action( 'enqueue_block_editor_assets', 'snackable_editor_assets' );
 
 
+
+/*
+Plugin Name: Sidebar plugin
+*/
+
+function sidebar_plugin_register() {
+    wp_register_script(
+        'snackable-sidebar-js',
+		plugins_url( '/dist/sidebar.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
+        array( 'wp-plugins', 'wp-edit-post', 'wp-element' )
+    );
+}
+add_action( 'init', 'sidebar_plugin_register' );
+
+function sidebar_plugin_script_enqueue() {
+    wp_enqueue_script('snackable-sidebar-js' );
+}
+add_action( 'enqueue_block_editor_assets', 'sidebar_plugin_script_enqueue' );

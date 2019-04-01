@@ -10,4 +10,3 @@
  */
 
 import './block/block.js';
-import './sidebar/sidebar.js';

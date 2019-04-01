@@ -9,23 +9,30 @@
 import './style.scss';
 import './editor.scss';
 
-// const { __ } = wp.i18n; // Import __() from wp.i18n
-// const { registerPlugin } = wp.plugin; // Import registerBlockType() from wp.blocks
-// const { InnerBlocks } = wp.editor;
-// const { Component } = wp.element;
+const { __ } = wp.i18n; // Import __() from wp.i18n
+const { registerPlugin } = wp.plugins; // Import registerBlockType() from wp.blocks
+const { PluginSidebar, PluginSidebarMoreMenuItem  } = wp.editPost;
+const { Fragment } = wp.element;
 // const { select } = wp.data;
 
-console.log('WP:', wp.plugins)
+const PLUGIN_NAME = 'plugin-snackable-quiz';
+const TITLE = 'Snackable Quiz Sidebar'; 
+registerPlugin(PLUGIN_NAME, {
+    render: function() {
+            return <Fragment>
+                <PluginSidebarMoreMenuItem
+                target={PLUGIN_NAME}
+            >
+                { __( TITLE ) }
+            </PluginSidebarMoreMenuItem>
 
-// const PLUGIN_NAME = 'snackable/plugin-snackable-quiz';
-// registerPlugin(PLUGIN_NAME, {
-//     render: function() {
-//         return <PluginSidebar
-//                     name={PLUGIN_NAME}
-//                     icon="admin-post"
-//                     title="Snackable Quiz Sidebar"
-//                 >
-//                     Meta field
-//                 </PluginSidebar>;
-//     },
-// } );
+                <PluginSidebar
+                        name={PLUGIN_NAME}
+                        icon="admin-post"
+                        title={ __(TITLE) }
+                    >
+                        Meta field
+                    </PluginSidebar>
+            </Fragment>;
+    },
+} );
