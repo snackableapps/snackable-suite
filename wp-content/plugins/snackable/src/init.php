@@ -82,3 +82,9 @@ function sidebar_plugin_script_enqueue() {
     wp_enqueue_script('snackable-sidebar-js' );
 }
 add_action( 'enqueue_block_editor_assets', 'sidebar_plugin_script_enqueue' );
+
+register_meta( 'post', 'snackable_quiz_topics', array(
+    'show_in_rest' => true,
+    'single' => true,
+    'type' => 'string',
+) );
