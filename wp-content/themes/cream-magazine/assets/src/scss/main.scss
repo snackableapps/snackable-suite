@@ -1,0 +1,93 @@
+/*
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.
+. @ All the scss files are include from here
+.
+. @ Project : Cream Magazine
+.
+. @ Version : 1.0.6
+.
+. @ Since : 2018 April 18
+
+. @ Last Updated : 28 March, 2018
+.
+. @ Author : Themebeez
+.
+. @ Author URL : https://themebeez.com/
+.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+
+// Browser Normalize V 8.0.0 
+
+
+@import 'normalize/normalize';
+
+
+// CSS framework ( Bootstrap )
+
+
+@import 'framework/bootstrap';
+
+
+
+// Variables for color & Typography
+
+
+@import 'variables/variables_color';
+@import 'variables/variables_typography';
+@import 'variables/woo-variables';
+
+
+
+// Import mixins  
+
+
+@import 'mixins/mixins';
+
+
+// External plugins & library
+
+
+@import 'plugins/owlcarousel';
+@import 'plugins/retina';
+@import 'plugins/animate';
+@import 'plugins/selectric';
+
+// Typography setup
+
+
+@import 'typography/typography';
+
+
+// Icon fonts ( eg: fontAwesome )
+
+
+@import 'fonticons/fonticon';
+
+
+// Custom Stylesheet ( Table of content inside at styles )
+
+
+@import 'custom/menu';
+@import 'custom/editor';
+@import 'custom/styles';
+@import 'wordpress/wpstyles';
+@import 'wordpress/woocommerce';
+
+
+// Responsive or Media query
+
+
+@import 'responsive/responsive';
+
+
+// Keyframes 
+
+
+@import 'custom/keyframe';

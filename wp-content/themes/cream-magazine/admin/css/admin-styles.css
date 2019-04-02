@@ -1,0 +1,11 @@
+
+/*
+Widget at Apperence > widgets 
+*/
+
+.widgets-holder-wrap [id*="cream-magazine"] .widget-top {
+
+    background: #ffc9b8;
+    box-shadow: none !important;
+    border: none !important;
+}

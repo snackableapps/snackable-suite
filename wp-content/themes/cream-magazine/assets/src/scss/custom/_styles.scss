@@ -1,0 +1,5777 @@
+/*
+***************************************************************
+*
+* 1. General overwrites
+*
+***************************************************************
+*/
+
+
+
+img {
+
+    vertical-align: middle;
+    max-width: 100%;
+    height:auto;
+}
+
+
+body {
+
+    line-height: $body_line_height;
+    font-weight: $body_font_weight;
+    font-size: $body_font_size;
+    font-family:$secondary_font_family;
+    color: $primary_color;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    @include transation_delay();   
+}
+
+a {
+
+    color: $primary_color;
+    text-decoration: none;
+    @include transation_delay();
+}
+
+a:hover {
+
+    color: $secondary_color;
+}
+
+
+// owl carousel issue at mobile scrolling
+
+
+.owl-carousel .owl-stage, 
+.owl-carousel.owl-drag .owl-item {
+
+    -ms-touch-action: auto;
+        touch-action: auto;
+}
+
+// browser default spacing
+
+ul,
+ol {
+
+    padding: 0;
+    margin: 0;
+}
+
+// Ancour default text decoration
+
+a {
+
+    text-decoration: none !important;
+}
+
+.site-description {
+
+    color: inherit;
+}
+
+
+/*
+***************************************************************
+*
+* 2. Common classes used in project
+*
+***************************************************************
+*/
+
+
+// Container 
+
+.cm-container {
+
+    position: relative;
+    max-width: 1170px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+}
+
+.cm-post-widget-section {
+    
+}
+
+
+// boxed layout ( condition )
+
+.page-wrapper {
+    
+    position:relative;
+    z-index:2;
+    background:$white;
+    margin:0 auto;
+}
+
+body.boxed .page-wrapper {
+    
+    max-width: 1170px;
+    width: 100%;
+}
+
+
+body.boxed .page-wrapper .cm-container {
+
+    padding-left:40px;
+    padding-right:40px;
+}
+
+
+// General page styles 
+
+.page_entry {
+
+    margin-bottom:40px;
+}
+
+
+// Custom row & Col 
+
+.custom_row {
+
+    margin-left: -15px;
+    margin-right:-15px;
+}
+
+.custom_row::before {
+
+    content:'';
+    display:table;
+}
+
+.custom_row::after {
+
+    content:'';
+    clear:both;
+}
+
+.col {
+    
+    float:left;
+    width:50%;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+
+// mask 
+
+.mask {
+ 
+    @include mask();
+}
+
+
+
+// Post Metas
+
+
+.post_meta {
+
+    list-style: none;
+    margin-top:10px;
+    opacity: 0.7;
+}
+
+.post_meta li {
+
+    display: inline-block;
+
+    span {
+        
+        display:inline-block;
+        font-size:14px;
+        margin-right: 3px;
+    }   
+
+    a {
+        display: inline-block;
+        position: relative;
+        color: $primary_color;
+        font-size: 14px;
+        margin-right: 15px;
+    }
+
+    a:hover {
+
+       color: $secondary_color;
+   }
+}
+
+.post_meta li a::before {
+
+    display: inline-block;
+    position:absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    left:0;
+    content: '';
+    font-family: 'feather';
+    vertical-align: middle;
+    font-size: 12px;
+  
+}
+
+
+// category 
+
+.entry_cats {
+
+    display:inline-block;
+}
+
+
+ul.post-categories {
+
+    list-style: none;
+
+    li {
+
+        display:inline-block;
+        margin-right: 1px;
+
+        a {
+
+            color:$white;
+            font-size:12px;
+            background:$secondary_color;
+            padding: 5px 10px;
+            line-height:22px;   
+            border-radius: 30px; 
+        }
+
+        a:hover{
+
+            color:$white;
+            background:$primary_color;
+                     
+        }
+    }       
+}
+
+// Social icons
+
+ul.social-icons {
+
+    li {
+
+            display: inline-block;
+                
+        a {
+            display: inline-block;
+            font-size: 0;
+            height: 0;
+            margin-right: 0;
+            line-height: 30px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+
+
+        a[href*=".com"]::before {
+
+            font-family: 'FontAwesome';
+            font-size: 14px;
+            color: $primary_color;
+            @include transation_delay();
+        }
+
+        a[href*="facebook.com"]::before {
+
+            content: "\f09a";
+            color:$facebook;
+        }
+
+        a[href*="twitter.com"]::before {
+
+            content: "\f099";
+            color:$twitter;
+        }
+
+        a[href*="instagram.com"]::before {
+
+            content: "\f16d";
+            color:$instagram;
+        }
+
+        a[href*="youtube.com"]::before {
+
+            content: "\f167";
+            color:$youtube;
+        }
+
+        a[href*="vk.com"]::before {
+
+            content: "\f189";
+            color:$vk;
+        }
+
+        a[href*="plus.google.com"]::before {
+
+            content: "\f0d5";
+            color:$googleplus;
+        }
+
+        a[href*="linkedin.com"]::before {
+
+            content: "\f0e1";
+            color:$linkedin;
+        }
+
+        a[href*="vimeo.com"]::before {
+
+            content: "\f27d";
+            color: $vimeo;
+        }
+
+        a[href*="pinterest.com"]::before {
+
+            content: "\f0d2";
+            color: $pinterest;
+        }
+    }
+}
+
+ul.social-icons li a[href*=".com"]:hover::before {
+
+    color: $secondary_color;
+}
+
+
+// Cards & box
+
+.card_content, 
+.box_content {
+
+    padding: 30px 20px;
+}
+
+.card,
+.box {
+
+    position: relative;
+    margin-bottom:30px;
+}
+
+
+// Section styles
+
+
+.section_spacing {
+
+    margin-bottom: 50px;
+}
+
+.section-title {
+
+    position:relative;
+    margin-bottom:30px;
+    text-align:left;
+    overflow:hidden;
+}
+
+.section-title h2 {
+    
+    display: inline-block;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height:1;
+    letter-spacing:0; 
+    position: relative; 
+    width: 100%; 
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    margin-left: 15px;
+    background-color: $secondary_color;
+}
+
+
+// Posts styles
+
+
+.post-holder {
+    
+    display:block;
+    @include position_absolute(50%,unset,unset,unset);
+    padding:0 15px;
+}
+
+
+
+// Post formates 
+
+
+.post-format {
+
+    list-style:none;
+    display:inline-block;
+
+    span {
+
+          display:inline-block;
+          padding: 1px 10px;
+          margin-right: 1px;
+          font-size:12px;
+          color: #9c9c9c;
+          background: #ffffff;
+          line-height:22px;
+    }
+}
+
+
+
+// Back to top
+
+
+#toTop {
+
+    position: fixed;
+    z-index: 9999999;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    background: $secondary_color;
+    color: $white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 2px;
+    outline: none;
+    @include transation_delay(); 
+
+    i {
+
+        font-size: 18px;
+    }
+}
+
+
+#toTop:hover {
+
+    background: $primary_color;
+}
+
+
+// Owl navs 
+
+.owl-carousel .owl-nav {
+
+    button.owl-prev, 
+    button.owl-next {
+
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        margin: 0 2px;
+        background:$secondary_color;
+        text-align: center;
+        outline: none;
+        @include transation_delay();
+
+        i {
+
+            color:$white;
+            font-size: 19px;
+            line-height: 40px;
+        }
+
+    }
+}
+
+
+// News ticker 
+
+
+.news_ticker_wrap {
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom:30px;
+
+
+    .ticker_head {
+
+        background: $secondary_color;
+        color: $white;
+        padding: 0 9px;
+        line-height:30px;
+        height:30px;
+        max-width:200px;
+        overflow:hidden;
+        text-transform:capitalize;
+        font-size:13px;
+    }
+
+    .ticker_items {
+
+        overflow:hidden;
+        max-width:100%;
+        width: calc(100% - 200px);
+        padding-left: 10px;
+
+        .item {
+
+            overflow:hidden;
+
+            a {
+
+                line-height:30px;
+            } 
+        }
+       
+    }
+}
+
+.ticker_carousel {
+
+    position: inherit;
+}
+
+.ticker_carousel .owl-nav {
+
+   position: absolute;
+   top: 0;
+   right: 0;
+}
+
+.ticker_carousel .owl-nav button.owl-prev,
+.ticker_carousel .owl-nav button.owl-next {
+
+    line-height: 15px;
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+    background: transparent;
+    color:$secondary_color;
+    border:1px solid $border_color;
+    border-radius: 0px;
+
+    i {
+
+        line-height:21px;
+        font-size:12px;
+        color:$secondary_color;
+    }
+}
+
+.ticker_carousel .owl-nav button.owl-prev:hover,
+.ticker_carousel .owl-nav button.owl-next:hover {
+
+    border:1px solid $secondary_color;
+}
+
+.ticker_carousel.owl-carousel .owl-nav button.owl-prev,
+.ticker_carousel.owl-carousel .owl-nav button.owl-next {
+
+    background-color:transparent;
+}
+
+
+
+
+// Image hover 
+
+
+.imghover img {
+    
+    @include transation_delay;
+}
+
+.imghover {
+
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.imghover:hover img  {
+
+   @include scale();
+}
+
+
+
+// Lazy loading
+
+
+.lazyloading,
+.lazy-loaded,
+img.lazyload,
+img.lazyloaded {
+
+    @include transation_delay();
+}
+
+.lazy-thumb img {
+
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+.lazy-thumb {
+
+    position: relative;
+    padding-bottom:75%;
+    background: whitesmoke;
+    overflow:hidden;
+}
+
+.lazy-thumb img.lazyload {
+    
+    opacity:0;
+}
+
+.lazy-thumb img.lazyloaded {
+
+    opacity:1;
+}
+
+
+.lazyloading::before {
+
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:10;
+  width: 100%;
+  max-width:100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 100%;
+  animation: shine-lines 1.6s infinite linear;
+}
+
+.image-loaded::before {
+
+    content:'';
+    display:none;
+    animation:none;
+    background:transparent;
+    transform:none;
+    height:0;
+    width:0;
+    z-index:-1;
+}
+
+
+
+/*
+***************************************************************
+*
+* 3. Header ( General Header )
+*
+***************************************************************
+*/
+
+
+header {
+
+   margin-bottom:30px;     
+}
+
+
+header .widget {
+
+    background:transparent;
+    padding:0;
+}
+
+header .widget img {
+
+    padding:0;
+}
+
+
+.top-header {
+
+    padding: 10px 0;
+    @include drop_shadow_alt();
+}
+
+.top-header-left ul,
+.top-header-social-links ul {
+
+    list-style:none;
+}
+
+.top-header-left ul li {
+
+    display:inline-block;
+    margin-right:10px;
+}
+
+.top-header-left ul li:last-child {
+
+   margin-right:0;
+}
+
+.top-header-left ul li a {
+   
+   display:inline-block;
+   line-height:30px;
+}
+
+.top-header-social-links ul {
+        
+    text-align:right;
+}
+
+.logo-container {
+
+    padding: 30px 0;
+}
+
+header .site-title {
+
+    font-weight:800;
+    font-size: 34px;
+}
+
+header .advertisement-area {
+
+     text-align:right;
+     line-height:90px;
+     height:90px;
+}
+
+header .advertisement-area .widget_text .textwidget img {
+    
+    display:inline-block;
+    padding:0;
+    margin:0;
+}
+
+.primary-navigation ul li a {
+
+    position:relative;   
+}
+.primary-navigation ul li.current_page_item {
+    position: relative;
+}
+
+.primary-navigation > ul > li.home-btn {
+    
+    background: $secondary_color;
+}
+
+.primary-navigation.dark li.home-btn a:hover {
+
+    color:$white;
+}
+
+
+.primary-navigation li.primarynav_search_icon {
+
+   float:right;
+}
+
+.header-search-container {
+
+   position: relative;
+   display: none;
+
+}
+
+.header-search-container form {
+   
+   position:absolute;
+   top:0;
+   right:0;
+   z-index:1000;
+   width:400px;
+   max-width:100%;
+   background: $white;
+   padding: 20px;
+   border-top: 3px solid $secondary_color;
+   overflow: auto;
+   animation: 0.3s 0s fadeInUp both;
+   @include drop_shadow(); 
+}
+
+.header-search-container form::before {
+    
+    content: '';
+    display: block;
+    position: absolute;
+    z-index:11;
+    top: -9px;
+    right: 19px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5.5px 6px;
+    border-color: transparent transparent $secondary_color transparent;
+}
+
+.header-search-container input[type="search"], 
+.header-search-container input[type="submit"] {
+    
+    position: relative;
+    height: 38px;
+    outline: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    padding-left: 15px;
+    border: none;
+    border-radius: 0;
+}
+
+.header-search-container input[type="search"] {
+        
+    float:left;
+    width: calc(100% - 80px);
+    border-top: 1px solid $border_color;
+    border-bottom: 1px solid $border_color;
+    border-left: 1px solid $border_color;   
+}
+
+.header-search-container input[type="submit"] {
+
+    float: right;
+    background: $secondary_color;
+    color: $white;
+    width: 80px;
+    font-weight: 400;
+    line-height: inherit;
+    padding: 0 15px;
+    border-radius: 0;
+}
+
+
+/*
+=================================================
+=
+= 3.1 Header layout 2 
+=
+========================================================================
+*/
+
+
+header.cm_header_lay_two {
+
+    padding-bottom: 0;
+    margin-bottom: 40px;
+    @include drop_shadow_alt();
+}
+
+header.cm_header_lay_two .top-header {
+
+    box-shadow:none;
+    border-bottom:1px solid $border_color;
+}
+
+header.cm_header_lay_two .logo-container {
+
+    padding: 0;
+}
+
+header.cm_header_lay_two .logo {
+    
+    vertical-align:middle;
+
+    .site-title {
+
+        margin-top: 10px;
+    }
+}
+
+.cm_header_lay_two .primary-navigation>ul {
+
+    text-align:right;
+}
+
+.cm_header_lay_two .primary-navigation > ul > li.home-btn {
+
+     background: transparent;
+}
+
+.cm_header_lay_two .primary-navigation {
+
+    border:none;
+}
+
+.cm_header_lay_two .primary-navigation.dark {
+
+    background:transparent;
+}
+
+.cm_header_lay_two .primary-navigation.dark li a {
+
+    color:$primary_color;
+    font-weight:normal;
+    text-transform: capitalize;
+    letter-spacing:0.35px;
+    font-size: 14px;
+}
+
+.cm_header_lay_two .primary-navigation.dark ul li a:hover {
+
+    background:transparent;
+    color:inherit;
+}
+
+.cm_header_lay_two .primary-navigation.dark>ul>li>a {
+
+    font-weight:400;
+    padding: 0px 10px;
+    line-height:90px;
+    color:$primary_color;
+    font-size: 16px;
+}
+
+.cm_header_lay_two .primary-navigation.dark>ul>li>a:hover {
+
+    color:$secondary_color;
+}
+
+.cm_header_lay_two .primary-navigation.dark ul ul {
+
+    background:#f5f5f5;
+}
+
+.cm_header_lay_two .primary-navigation.dark ul ul li a:hover {
+
+    color:$white;
+}
+
+
+/*
+=================================================
+=
+= 3.2 Header layout 3 
+=
+========================================================
+*/
+
+header.cm_header_lay_three  {
+
+    @include drop_shadow_alt();
+    padding: 0px;
+    margin-bottom:30px;
+}
+
+.cm_header_lay_three .top-header {
+
+    border-bottom:none;
+    background:$primary_color;
+    padding:0;
+}
+
+.cm_header_lay_three .primary-navigation > ul > li.home-btn {
+
+    background: $secondary_color;
+}
+
+.cm_header_lay_three .primary-navigation {
+
+    border-bottom:none;
+}
+
+.cm_header_lay_three .primary-navigation ul li a {
+
+    text-transform:capitalize;
+}
+
+.cm_header_lay_three .logo-container {
+
+    padding:20px 0;
+}
+
+
+/*
+=================================================
+=
+= 3.3 Header layout 4 
+=
+=================================================================
+*/
+
+
+.cm_header_lay_four {
+    
+    .navigation-container {
+
+        background-color: $primary_color;
+
+        .primary-navigation {
+
+            background-color: transparent;
+
+            ul {
+                li.home-btn {
+                    background-color: transparent;
+
+                    a {
+                        color: $secondary_color;
+                    }
+                }
+            }
+        }
+    }
+
+    .logo-container {
+        padding: 40px 0px;
+    }
+}
+
+
+header.cm_header_lay_four .logo  {
+
+    height:auto;
+    line-height:inherit;
+}
+
+.cm_header_lay_four .logo-container,
+header.cm_header_lay_four  .advertisement-area {
+
+    text-align:center;
+}
+
+header.cm_header_lay_four .advertisement-area {
+
+    height:auto;
+    line-height:inherit;
+    margin-top:30px;
+}
+
+header.cm_header_lay_four .widget {
+
+    margin-bottom:0;
+}
+
+
+/*
+=================================================
+=
+= 3.4 Header layout 5 
+=
+============================================================
+*/
+
+
+.cm_header-five .top-header {
+    
+    position:relative;
+    padding:0;
+    box-shadow:none;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.cm_header-five .top-header .logo-container {
+    
+    position:relative;
+    z-index:10;
+    text-align:center;
+    padding: 70px 0;
+    margin-bottom:30px;
+
+}
+
+.cm_header-five .navigation-container {
+
+    // background-color: $primary_color;
+}
+
+
+/*
+***************************************************************
+*
+* 4. Banner ( General Banner )
+*
+***************************************************************
+*/
+
+
+.cm_banner .banner-content-holder {
+   
+   position:relative;      
+   min-height: 400px;
+   background-size: cover;
+   background-position: center center;
+   background-repeat: no-repeat;
+}
+
+.cm_g_banner {
+
+   position:relative;     
+}
+
+.cm_banner .banner-content-holder:hover {
+
+   .mask {
+        
+        background:rgba(0,0,0,0.6);
+   }    
+}
+
+.cm_banner .banner-content-holder .post-holder {
+
+     @include position_absolute(80%,inherit,0,0); 
+     bottom: 0;
+     left: 0;
+     right: 0;
+     padding: 20px;
+     background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,1) 100%);
+}
+
+.cm_banner .owl-nav {
+
+    @include position_absolute(15px, inherit, inherit, 10px);
+    top: 20px;
+    right: 20px;
+    transform:none;
+
+}
+
+.cm_banner .post_title h2 {
+
+    font-size:24px;
+    margin:15px 0px 0px;
+    line-height:1.2;
+    
+}
+
+.cm_banner .post_title h2 a {
+
+   color:$white;         
+}
+
+.cm_banner .post_title h2 a:hover {
+
+   color:$secondary_color;     
+}
+
+.cm_banner .post_meta li a,
+.cm_banner .post_meta li span  {
+
+   color:$white;     
+}
+
+.cm_banner .post_meta li a:hover {
+
+   color:$secondary_color;     
+}
+
+.cm_banner .lazy-thumb {
+
+    padding-bottom:0;
+}
+
+
+
+/*
+=================================================
+=
+= 4.1 Banner layout 2 
+=
+================================================================
+*/
+
+
+// Common ( Right & Left gutter )
+
+.cm-banner-two .post_thumb {
+
+    position:relative;
+}
+
+.cm-banner-two .post_thumb:hover {
+
+   .mask {
+        
+        background:rgba(0,0,0,0.6);
+   }    
+}
+
+.cm_banner.cm-banner-two .card {
+
+    margin-bottom:0;
+}
+
+
+// Left gutter
+
+.cm-banner-two .gutter-left {
+
+    padding-right:5px;
+    position: relative;
+}
+
+.cm-banner-two .gutter-left .post-holder {
+    
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    padding:20px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);
+}
+
+.cm-banner-two .gutter-left .card .post_thumb {
+
+    height:520px;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+
+
+// Right gutter
+
+.cm-banner-two .gutter-right {
+
+    padding-left:5px;
+    position: relative;
+}
+
+.cm-banner-two .gutter-right .gutter-right-top {
+
+    margin-bottom:10px;
+}
+
+.cm-banner-two .gutter-right .card .post_thumb {
+
+    height:255px;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.cm-banner-two .gutter-right .post-holder {
+
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    padding:20px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);
+}  
+
+.cm_banner.cm-banner-two .gutter-right .post_title h2 {
+
+    margin: 10px 0 5px;
+    font-size:$typo_medium;
+}
+
+.cm_banner.cm-banner-two .gutter-right .meta ul {
+
+    margin-top:0;
+}
+
+
+
+/*
+=================================================
+=
+= 4.2 Banner layout 3 
+=
+=============================================================
+*/
+
+
+.cm_banner-carousel-three {
+
+    margin-bottom:30px;
+}
+
+.cm_banner-carousel-three .banner-content-holder {
+    
+    height:auto;
+}
+
+.cm_banner-carousel-three .banner-content-holder .post_thumb {
+
+    position: relative;
+    height: 550px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.cm_banner-carousel-three .banner-content-holder .post-holder {
+    
+    position: absolute;
+    text-align: center;
+    padding: 50px 150px;
+    left: 0;
+    right: 0;
+    background: none;
+    color: #ffffff;
+    bottom: 0;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, black 100%);
+
+    .post-format {
+
+        span {
+            background-color: #010101;
+            border-color: #010101;
+            color: #ffffff;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            padding: 0px;
+        }
+    }
+
+    .meta-icon {
+        color: #ffffff;
+    }
+
+    a {
+        color: #ffffff;
+    }
+}
+
+.cm_banner-carousel-three .post_title {
+
+    h2 {
+
+        font-size: 28px;
+    }
+}
+
+.cm_banner-carousel-three .post_meta li a, 
+.cm_banner-carousel-three .post_meta li span {
+
+     color:$primary_color;
+}
+
+.cm_banner-carousel-three {
+    
+    position: relative;
+
+    .owl-nav {
+        position: absolute;
+        top: auto;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+        button.owl-prev,
+        button.owl-next {
+
+            position: absolute;
+            color:$white;
+            border-radius: 0px;
+            margin: 0px;
+
+            span {
+                font-size: 24px;
+            }
+        }
+
+        button.owl-prev {
+            left: 0;
+            bottom: 0;
+        }
+
+        button.owl-next {
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
+
+
+/*
+=================================================
+=
+= 4.3 Banner layout 4 
+=
+=========================================================
+*/
+
+// Common ( left & right gutter )
+
+
+.cm_banner-four .post_thumb {
+
+    position:relative;
+}
+ 
+
+.cm_banner-four .post_thumb:hover {
+
+   .mask {
+        
+        background:rgba(0,0,0,0.6);
+   }    
+}
+
+.cm_banner.cm_banner-four .card {
+
+    margin-bottom:0;
+}
+
+
+// Left gutter 
+
+
+.cm_banner-four .gutter-left {
+
+    padding-right:5px;
+    position: relative;
+}
+
+.cm_banner-four .gutter-left .post_thumb {
+
+    height:420px;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    
+}
+
+.cm_banner-four .gutter-left .post-holder {
+
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    padding:20px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);
+}
+
+
+// Right gutter  
+
+
+.cm_banner-four .gutter-right {
+
+    padding-left:5px;
+}
+
+.cm_banner-four .gutter-right .post_title h2 {
+
+    font-size:$typo_small;
+}
+
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col .post-holder {
+
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    padding:20px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);    
+}
+
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col:first-child {
+
+    width:100%;
+    margin-bottom:10px;
+
+}
+
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col:first-child .post_thumb {
+
+    height:210px;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col:nth-child(2),
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col:nth-child(3) {
+
+     .post_thumb {
+
+        height:200px;
+        background-position:center center;
+        background-size:cover;
+        background-repeat:no-repeat;
+    }
+
+    .post-holder  {
+
+
+    .post_title {
+
+        h2 {
+            margin-bottom: 5px;
+        }
+    }
+
+    .meta {
+
+        ul {
+
+            margin-top:0;
+         }
+      }
+   }
+}
+
+
+.cm_t_h_e_m_e_b_e_e_z .gutter-right .right-content-holder .custom_row .col {
+
+    color:inherit;
+}
+
+
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col:nth-child(2) {
+
+    padding-right:5px;
+}
+
+.cm_banner-four .gutter-right .right-content-holder .custom_row .col:nth-child(3)  {
+
+    padding-left:5px;
+}
+
+
+
+/*
+=================================================
+=
+= 4.4 Banner layout 5 
+=
+=========================================================
+*/
+
+
+.cm_banner-five {
+
+    @extend .cm_banner-four;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:first-child .post_thumb,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(2) .post_thumb,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(3) .post_thumb,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(4) .post_thumb {
+
+    height:205px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center center;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col .post-holder {
+
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    padding:20px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);   
+}
+
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:first-child,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(2) {
+
+    margin-bottom:10px;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:first-child,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(3) {
+
+    width:50%;
+    padding-right:5px;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(2),
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(4) {
+
+    padding-right:15px;
+    padding-left:5px;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(3),
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(4) {
+
+    margin-bottom: 0px;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(3) {
+
+    padding-left:15px;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(4) .post-holder .post_title h2,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:first-child .post-holder .post_title h2 {
+
+    margin-bottom: 5px;
+}
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(4) .post-holder .meta ul,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:first-child .post-holder .meta ul {
+
+    margin-top: 0;
+}
+
+
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(2) .post-holder .entry_cats,
+.cm_banner-five .gutter-right .right-content-holder .custom_row .col:nth-child(3) .post-holder .entry_cats {
+
+    display:block;
+}
+
+.cm_banner-five .gutter-right .right-content-holder ul.post-categories li a {
+
+    font-size: 11px;
+    line-height:1;
+    padding: 3px 8px;
+}
+
+.cm_banner-carousel-five {
+
+    .owl-nav {
+
+        button.owl-prev,
+        button.owl-next {
+
+            line-height: 35px;
+            width: 35px;
+            height: 35px;
+
+            i {
+                font-size: 18px;
+                line-height: 35px;
+            }
+        }
+    }
+}
+
+
+.cm_banner-five .gutter-right .meta ul li.comments,
+.cm_banner-five .gutter-right .meta ul li.post_author {
+
+    display:none;
+}
+
+
+
+/*
+***************************************************************
+*
+* 5. Front-page news widgets
+*
+***************************************************************
+*/
+
+
+// Default styling for news front page news widgets 
+
+
+.edit-link {
+    
+    margin-bottom: 30px;
+}
+
+
+.banner-area {
+
+    margin-bottom:30px;
+}
+
+.news-area  {
+
+    padding-bottom:35px;
+}
+
+
+.top-news-area,
+.middle-news-area,
+.bottom-news-area {
+        
+    .cm-post-widget-section {
+
+        // margin-bottom: 30px;
+
+        &:last-child {
+
+            margin-bottom: 0px;
+        }
+    }
+
+    .widget {
+
+        margin-bottom: 30px;
+
+        img {
+
+            padding:0;
+            display:block;
+            margin:0 auto;
+        }
+    }
+
+    .widget_custom_html {
+
+        text-align:center;
+    }
+}
+
+
+
+// Align custom html widget text to left on sidebar/footer 
+
+
+.middle-news-area .sidebar-widget-area .widget_custom_html {
+
+    text-align:left;
+}
+
+
+
+// Custom html widgets in Front-page 
+
+
+.top-news-area .widget_custom_html,
+.middle-news-area .widget_custom_html,
+.bottom-news-area .widget_custom_html   {
+
+    margin-bottom:30px;
+}
+
+.top-news-area .widget_custom_html .custom-html-widget img,
+.middle-news-area .widget_custom_html .custom-html-widget img,
+.bottom-news-area  .widget_custom_html .custom-html-widget img {
+
+    padding: 0;
+    display:inline-block;
+    margin:0 auto;
+}
+
+
+.blog-container,
+.single-container,
+.page-container,
+.archive-container,
+.search-container,
+.woocommerce-container {
+    
+    padding: 30px 0px;
+}
+
+.blog-container,
+.single-container,
+.page-container,
+.archive-container,
+.search-container,
+.woocommerce-container {
+    
+    .content-entry {
+
+        margin-top: 0px;
+    }
+}
+
+
+.boxes_holder .hentry {
+    
+    margin-bottom: 0px;
+}
+
+.post-detail {
+    
+    margin-bottom: 40px !important;
+}
+
+
+
+
+/*
+================================
+=
+= 5.1 News widget 1 
+=
+=================================================
+*/
+
+.cm_post_widget_one {
+
+    margin-bottom: 40px;
+}
+
+.cm_post_widget_one .card {
+
+    margin-bottom:10px;
+}
+
+.cm_post_widget_one .card:hover .mask {
+
+    background:rgba(0,0,0,0.6);
+}
+
+.cm_post_widget_one .post-holder {
+
+    text-align:center;
+    width:100%;
+}
+
+.cm_post_widget_one .post_title h2 {
+
+    font-size:$typo_big;
+    margin-top:15px;
+}
+
+
+.cm_post_widget_one .post_title h2 a {
+
+    color:$white;
+}
+
+.cm_post_widget_one .post_meta li span,
+.cm_post_widget_one .post_meta li a {
+
+    color:$white;
+}
+
+.cm_post_widget_one .post_title h2 a:hover,
+.cm_post_widget_one .post_meta li a:hover {
+
+    color:$secondary_color;
+}
+
+.cm_post_widget_one .widget_one_bottom_posts {
+
+    margin-bottom:-10px;
+}
+
+.cm_post_widget_one .widget_one_bottom_posts .gutter .card {
+
+    margin-bottom:10px;
+}
+
+.cm_post_widget_one .widget_one_bottom_posts .gutter:nth-child(odd) {
+
+    padding-right:5px;
+}
+
+
+.cm_post_widget_one .widget_one_bottom_posts .gutter:nth-child(even) {
+
+    padding-left:5px;
+}
+
+
+
+/*
+================================
+=
+= 5.2 News widget 2
+=
+==========================================
+*/
+
+.cm-post-widget-two {
+
+    margin-bottom: 30px;
+}
+
+.cm-post-widget-two .lazy-thumb {
+
+    padding-bottom:56.25%;
+}
+
+.cm-post-widget-two {
+
+    .big-card {
+
+        color: $white;
+        margin-bottom: 30px;
+
+        .post_thumb {
+
+            position: relative;
+
+            .post-format {
+
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 10;
+
+                span {
+
+                    color: #ffffff;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 35px;
+                    font-size: 18px;
+                    background: transparent;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    background-color: $primary_color;
+                    border-color: $primary_color;
+                    transition: all 0.7s ease;
+                }
+                
+            }
+        }
+
+        .post_thumb:hover {
+
+            .post-format {
+                span {
+                    transition: all 0.7s ease;
+                }
+            }
+        }
+
+        .post-holder {
+
+            position: absolute;
+            width:100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);
+
+            .post_title {
+
+                h2 {
+                    margin-top: 10px;
+                    font-size: 24px;
+                }
+            }
+
+            a {
+                color: $white;
+
+                &:hover,
+                &:focus {
+                    color: $secondary_color;
+                }
+            }
+
+
+            .post-categories {
+
+                a:hover {
+
+                    color:$white;
+                }
+            }
+        
+        }
+    }
+
+    .small-card {
+
+        .post-holder {
+
+            position: relative;
+            padding: 15px;
+            background-color: rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,.03);
+
+            .post_title {
+                h2 {
+
+                    font-size: $typo_small;
+                }
+            }
+
+            a {
+                &:hover,
+                &:focus {
+                    color: $secondary_color;
+                }
+            }
+        }
+    }
+    
+
+}
+
+
+/*
+================================
+=
+= 5.3 News widget 3
+=
+==============================================
+*/
+
+
+.top-news-area .cm-post-widget-three {
+
+    margin-bottom:0;
+}
+
+.cm-post-widget-three .card_content {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,.03);
+}
+
+.cm-post-widget-three .post-format span {
+    background-color: $primary_color;
+    border-color: $primary_color;
+    color:$white;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    padding: 0px;
+}
+
+.cm-post-widget-three .post_title h2 {
+
+    font-size:$typo_medium;
+    margin-top:10px;    
+}
+
+.cm-post-widget-three .post_meta {
+
+    margin-top:5px;
+}
+
+
+/*
+================================
+=
+= 5.4 News widget 4
+=
+===================================================
+*/
+
+
+.cm_post_widget_four .section-title {
+
+    margin-bottom:15px;
+}
+
+.cm_post_widget_four .section-title h2 {
+
+    background:transparent;
+    padding: 15px 0;
+    font-size:16px;
+}
+
+.cm_post_widget_four .section-title h2::after {
+
+    content:"";
+    display:none;
+}
+
+.cm_post_widget_four .video_details {
+
+    margin-top:10px;
+}
+
+.cm_post_widget_four .post_title h2 {
+
+    font-size:$typo_medium;
+    margin-top:10px;
+}
+
+
+// In-case of background color
+
+
+.cm_post_widget_four.with_bg {
+
+   background:$primary_color;
+   padding:30px;
+   @include border_radius(5px); 
+}
+
+
+.cm_post_widget_four.with_bg .post_title h2 a {
+
+    color:$white;
+}
+
+.cm_post_widget_four.with_bg .post_title h2 a:hover {
+
+    color:$secondary_color;
+}
+
+.cm_post_widget_four.with_bg .section-title h2 {
+
+    color:$white;
+}
+
+.cm_post_widget_four .video_news {
+
+    position:relative;
+    margin-bottom:20px;
+
+    a {
+
+        display:block;
+    }
+
+    a:focus,
+    a:hover,
+    a:active {
+
+        outline:none !important;
+    }
+    
+    figure {
+            
+        position: relative;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        outline:none;
+        margin: 0;
+        padding: 0;
+        border:none;
+        width:100%;
+        height:100%;
+        min-height: 170px;
+        border-radius: 5px;
+
+        img {
+
+            display: block;
+            max-width: 100%;
+            height: auto;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all .20s;
+            outline:none;
+        }
+    }
+
+    &:hover {
+        & figure {
+            & img {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+
+    &:hover:before {
+
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+.cm_post_widget_four .owl-nav {
+
+    @include position_absolute(-60px, unset, unset, 0);
+
+    transform:none;
+}
+
+.cm_post_widget_four .owl-nav button.owl-next,
+.cm_post_widget_four .owl-nav button.owl-prev {
+
+    background:transparent;
+    border:1px solid $secondary_color;
+    line-height: 24px;
+    width: 24px;
+    height: 24px;
+
+    i {
+
+        line-height:21px;
+        font-size:14px;
+    }
+}
+
+
+.cm_post_widget_four.with_bg .owl-nav button.owl-next,
+.cm_post_widget_four.with_bg .owl-nav button.owl-prev {
+
+    border:0.5px solid rgba(255,255,255,0.4);
+}
+
+
+
+/*
+================================
+=
+= 5.5 News widget 5
+=
+===============================================
+*/
+
+
+.cm_post_widget_five .boxes_holder {
+
+    margin-bottom:30px;
+}
+
+.cm_post_widget_five .post_title h2 {
+
+   font-size:$typo_big;
+   margin:10px 0;
+}
+
+.cm_post_widget_five .post-format span {
+
+    background: #d8d8d8;
+    color:$white;
+}
+
+
+
+/*
+================================
+=
+= 5.6 News widget 6
+=
+====================================================
+*/
+
+
+
+.bottom-news-area .cm_post_widget_six {
+
+    margin-bottom:0;
+}
+
+.cm_post_widget_six .post_title h2  {
+
+    font-size:16px;
+}
+
+
+// New added
+
+.cm_middle_post_widget_one {
+
+    // margin-bottom:20px;
+}
+
+.cm_middle_post_widget_one .card .boxes_holder .post_title h2 {
+
+    font-size: 16px;
+    margin-top: 0px;
+}
+
+.cm_middle_post_widget_one .card .post_title h2 {
+
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.cm_middle_post_widget_one .post_title h2 a:hover,
+.cm_middle_post_widget_one .post_meta li a:hover {
+
+    color:$secondary_color;
+}
+
+.cm_middle_post_widget_one  .card_layout_one {
+
+    .boxes_holder {
+
+        margin-bottom:30px;
+
+        .left_box {
+
+            float:left;
+            width:130px;
+        }
+
+        .right_box {
+
+            float:left;
+            width:calc( 100% - 130px);
+            padding-left:20px;
+
+            .post-format span {
+
+                background-color: $primary_color;
+                border-color: $primary_color;
+                color:$white;
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 50%;
+                padding: 0px;
+            }
+
+
+            .post_title h2 {
+
+                font-size: $typo_medium;
+                line-height: 1.3;
+                margin-top: 0px;
+            }
+
+            .post_title h2 a, .post_meta li span, .post_meta li a {
+
+                color:$primary_color;
+            }
+
+            .post_title h2 a:hover,.post_meta li a:hover {
+
+                color:$secondary_color;
+            }
+        }
+    }
+}
+
+
+.cm_middle_post_widget_one {
+
+    .card:hover .mask {
+
+        background:rgba(0,0,0,0.6);
+
+    }
+    .post_thumb {
+
+    }
+
+    .post_thumb:hover {
+        .post-format {
+            span {
+                transition: all 0.7s ease;
+            }
+        }
+    }
+
+    .post-holder {
+        padding: 20px;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+
+        .post-format {
+
+            span {
+                background-color: #010101;
+                border-color: #010101;
+                color: #fff;
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 50%;
+                padding: 0px;
+            }
+        }
+    }
+}
+
+
+/*
+================================
+=
+= 5.7 News widget 7
+=
+================================================
+*/
+
+
+.cm_post_widget_seven {
+
+    margin-bottom: 30px;
+}
+
+.cm_post_widget_seven .lazy-thumb {
+
+    padding-bottom:0;
+}
+
+.cm_post_widget_seven .widget_seven_carousel {
+
+    position:relative;
+}
+
+.cm_post_widget_seven .owl-nav button.owl-prev {
+
+    @include position_absolute(45%,unset,0,unset);
+}
+
+.cm_post_widget_seven .owl-nav button.owl-next {
+
+    @include position_absolute(45%,unset,unset,0);
+}
+
+.cm_post_widget_seven .owl-nav button.owl-prev:hover,
+.cm_post_widget_seven .owl-nav button.owl-next:hover {
+
+    background:$primary_color;
+}
+
+.cm_post_widget_seven {
+    
+    .card {
+        position: relative;
+        margin-bottom: 0px;
+        min-height: 400px;
+        background-size: cover;
+        background-position: center;
+
+        .card_content{
+            position:absolute;
+            z-index: 10;
+            padding: 20px;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, black 100%);
+            color: $white;
+
+            a {
+                color: $white;
+            }
+
+            a:hover,
+            a:focus {
+                color: $white;
+            }
+        }
+    }
+}
+
+.cm_post_widget_seven .post_title h2  {
+
+    font-size: 19px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+// New added 
+
+
+.middle-news-area .cm_middle_post_widget_two {
+
+    margin-bottom:0;
+}
+
+.cm_middle_post_widget_two .post_title h2  {
+
+    font-size:16px;
+}
+
+.cm_post_widget_seven .card .card_content .post-categories a:hover {
+
+    color:$white;
+}
+
+
+
+/*
+================================
+*
+* 5.8 News widget 8
+*
+====================================================
+*/
+
+.cm_post_widget_eight .card {
+
+    border:1px solid $border_color;
+
+    @include border_radius(5px);
+    @include transation_delay();
+}
+
+.cm_post_widget_eight .card:hover {
+
+    @include drop_shadow();
+}
+
+.cm_post_widget_eight .post_title h2  {
+
+    font-size:$typo_medium;
+    line-height:1.3;
+}
+
+
+
+// New added
+
+
+.middle-news-area .cm_middle_post_widget_three {
+
+    margin-bottom:0;
+}
+
+.cm_middle_post_widget_three .lazy-thumb {
+
+    padding-bottom:56.25%;
+}
+
+.cm_middle_post_widget_three .widget_one_bottom_posts .lazy-thumb {
+
+    padding-bottom:75%;
+}
+
+.cm_middle_post_widget_three {
+
+    .post_thumb {
+
+        position: relative;
+
+        .post-format {
+
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 10;
+
+                span {
+                    color: #ffffff;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 35px;
+                    font-size: 18px;
+                    background: transparent;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    background-color: $primary_color;
+                    border-color: $primary_color;
+                    transition: all 0.7s ease;
+                }
+            }
+
+        .post-holder {
+
+            position: absolute;
+            padding: 20px;
+            bottom: 0px;
+            right: 0;
+            left: 0;
+            color: #ffffff;
+            background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,1) 100%);
+
+            .post_title {
+                h2 {
+                    font-size: 21px;
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            a {
+                color: #ffffff;
+            }
+        }
+    }
+
+    .right_box {
+
+        .post_title h2 {
+            font-size: 16px;
+        }
+    }
+}
+
+
+.cm_middle_post_widget_three .post_thumb .post-holder .post-categories ul li a:hover {
+
+    color:$white;
+}
+
+
+/*
+================================
+=
+= 5.9 News widgett 9 ( Extends news widget 4 )
+=
+============================================================
+*/
+
+
+.cm_post_widget_nine {
+
+    @extend .cm_post_widget_four;
+
+}
+
+.with_bg.cm_post_widget_nine {
+
+    padding: 40px 30px;
+    border-radius:0;
+}
+
+ .cm_post_widget_nine .owl-nav {
+
+    top: -55px;
+    right: 0px;
+ }
+
+
+// if boxed layout 
+
+body.boxed .with_bg.cm_post_widget_nine  {
+
+    margin-left:15px;
+    margin-right:15px;
+}
+
+
+
+// New added 
+
+
+
+
+.middle-news-area .cm_middle_post_widget_four {
+
+    margin-bottom:0;
+}
+
+.cm_middle_post_widget_four {
+
+    .left-container {
+
+        .post-holder {
+            padding: 20px;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+
+            .post-format {
+
+                span {
+                    background-color: #010101;
+                    border-color: #010101;
+                    color: #fff;
+                    text-align: center;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    padding: 0px;
+                }
+            }
+
+            .post_title {
+                
+                h2 {
+                    font-size: 21px;
+                    margin-top: 10px;
+                }
+            }
+
+            .post-excerpt {
+                margin-top: 10px;
+
+                p {
+                    color: #000000;
+                }
+                
+            }
+        }
+    }
+
+    .right_box {
+
+        .post_title h2 {
+            font-size: 16px;
+        }
+    }
+}
+
+
+
+
+/*
+================================
+=
+= 5.10 News widget 10 
+=
+==================================================
+*/
+
+
+// .masonary_grid {
+
+//     margin-left: -15px;
+//     margin-right: -15px;
+// }
+
+
+// // Masonary items in Normal cases 
+
+// .masonary_grid_item {
+    
+//     width: 33.33333333%;
+//     padding-left: 15px;
+//     padding-right: 15px;
+//     margin-bottom: 30px;
+    
+
+// }
+
+// .masonary_grid_item .card {
+    
+//     margin-bottom:0;
+//     border:1px solid $border_color;
+//     @include border_radius(5px);
+// }
+
+// .masonary_grid_item .post_title h2 {
+
+//     font-size:$typo_medium;
+//     margin-top:20px;
+// }
+
+
+// .masonary_grid_item .post-format span {
+
+//     background: #d8d8d8;
+//     color: #fff;
+// }
+
+
+// // Masonary items in middle section 
+
+// #primary .masonary_grid_item {
+
+//     width:50%;
+// }
+
+
+
+/*
+================================
+=
+= 5.11 News widget 11 
+=
+==================================================
+*/
+
+.cm_post_widget_eleven {
+
+    // @extend .cm_post_widget_one;
+}
+
+.widget_eleven_carousel {
+
+    position:relative;
+}
+
+.widget_eleven_carousel .owl-nav {
+
+    @include position_absolute(30px, unset, unset, 30px);
+    transform:none;
+}
+
+.widget_eleven_carousel .owl-nav button.owl-next:hover,
+.widget_eleven_carousel .owl-nav button.owl-prev:hover {
+
+    background: $primary_color;
+}
+
+
+// New added 
+
+
+
+.cm_middle_post_widget_six {
+    
+    margin-bottom: 30px;
+    
+    .middle_widget_six_carousel {
+
+        position: relative;
+
+        .item {
+            .card {
+                position: relative;
+                min-height: 400px;
+                background-size: cover;
+                background-position: center;
+                margin-bottom: 0px;
+
+                .card_content{
+
+                    position:absolute;
+                    z-index: 10;
+                    padding: 20px;
+                    bottom: 0px;
+                    right: 0px;
+                    left: 0px;
+                    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, black 100%);
+                    color: #ffffff;
+
+                    a {
+                        color: #ffffff;
+                    }
+
+                    a:hover,
+                    a:focus {
+                        color: $secondary_color;
+                    }
+
+                    .post-categories a:hover {
+
+                        color:$white;
+                    }
+                }
+            }
+        }
+
+        .owl-nav {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            .owl-prev,
+            .owl-next {
+                border-radius: 0px;
+                margin: 0px;
+                height: 35px;
+                width: 35px;
+                line-height: 35px;
+
+                i {
+                    line-height: 35px;
+                }
+                
+            }
+
+            .owl-prev {
+                margin-right: 2px;
+            }
+        }
+    }
+}
+
+
+.cm_middle_post_widget_six .lazy-thumb {
+
+    padding-bottom:0;
+}
+
+.cm_middle_post_widget_six .post_title h2  {
+
+    font-size: 21px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/*
+================================
+=
+= 5.12 News widget 12
+=
+==================================================
+*/
+
+
+.cm_post_widget_twelve {
+
+    .card {
+
+        .post_thumb {
+
+            position: relative;
+
+            .post-format {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 10;
+
+                span {
+                    color: #ffffff;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 35px;
+                    font-size: 18px;
+                    background: transparent;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    background-color: $primary_color;
+                    border-color: $primary_color;
+                    transition: all 0.7s ease;
+                }
+                
+            }
+        }
+
+        .post_thumb:hover {
+
+            .post-format {
+                span {
+                    transition: all 0.7s ease;
+                }
+            }
+        }
+
+        .post-holder {
+            position: absolute;
+            width:100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 1) 100%);
+
+            .post_title {
+
+                h2 {
+                    margin-top: 10px;
+                    font-size: 18px;
+                }
+            }
+
+            a {
+                color: $white;
+
+                &:hover,
+                &:focus {
+                    color: $white;
+                }
+            }
+
+            .meta-icon {
+                color: #ffffff;
+            }
+        
+        }
+    }
+
+    .text-post-holder {
+        margin-bottom: 30px;
+
+        .post-number {
+
+            span {
+                display: block;
+                height: 35px;
+                width: 35px;
+                line-height: 35px;
+                background-color: $primary_color;
+                color: #ffffff;
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+
+        .post_title {
+            h2 {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+.cm_post_widget_twelve .card .post-holder .entry_cats a:hover {
+
+    color:$white;
+}
+
+
+
+/*
+========================
+=
+= # News widget Video 
+=
+====================================================
+*/
+
+
+.video_section {
+
+    background-color: $primary_color;
+    padding: 60px 0px;
+    margin-bottom:30px;
+
+    .section-title {
+
+        h2 {
+            color: #ffffff;
+        }
+    }
+
+    .video_news {
+        position: relative;
+
+        figure {
+
+            background-size: contain;
+        }
+    }
+
+    .video_details {
+
+        padding: 20px;
+        background-color: #ffffff;
+
+        .post_title {
+
+            h2 {
+                font-size: 18px;
+                margin-top: 15px;
+
+                a {
+                    color: $primary_color;
+                }
+
+                a:hover {
+                    color: $secondary_color;
+                }
+            }
+        }
+    }
+
+    .video_carousel {
+
+        position: relative;
+
+        .owl-nav {
+            margin-top: 30px;
+            text-align: center;
+        }
+    }
+}
+
+
+.cm_video_post_widget_two {
+
+    .video-container {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+/*
+***************************************************************
+*
+* 6. Footer 
+*
+***************************************************************
+*/
+
+
+// Default Footer Styles 
+
+footer {
+
+    position:relative;
+    color:$footer_section_text_color;
+
+    p,span,strong,a,em,b,i,h1,h2,h3,h4,h5,h6 {
+
+        color:$footer_section_text_color;
+    }
+
+    a {
+
+        color:$footer_section_text_color;
+    }
+
+    a:hover {
+
+        color:$white;
+    }
+
+    .widget-title h2 {
+
+        color:$white;
+    }
+
+    .mask {
+
+        background:rgba(0,0,0,0.8);
+        z-index:-1;
+    }
+
+    .post_meta li a {
+
+        color:$footer_section_text_color;
+    }
+
+}
+
+
+footer .footer_inner {
+
+    position:relative;
+    z-index:5;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-color:$footer_bg;
+}
+
+.footer-widget-container {
+    
+    // margin-bottom: 60px;
+}
+
+.copyright_section {
+
+    padding-top:30px;
+
+    span {
+
+        display:block;
+        
+        a {
+
+            color:$white;
+        }
+    }
+
+    a {
+
+        color:$footer_section_text_color;
+    }
+
+    a:hover {
+
+        color:$secondary_color;
+    }
+
+    p {
+
+        padding-bottom:5px;
+    }
+}
+
+.copyrights a {
+
+    color:$secondary_color;
+}
+
+.copyrights a:hover {
+
+    color:$white;
+}
+
+.footer_nav {
+
+    ul {
+
+        list-style:none;
+        text-align:right;
+
+        li {
+
+            display:inline-block;
+
+            a {
+                display:inline-block;
+                padding-right:10px;
+                margin-right:10px;
+                line-height:16px;
+                border-right:1px solid rgba(255,255,255,0.4);
+            }
+        }
+
+        li:last-child a {
+
+            padding-right:0;
+            margin-right:0;
+            border-right:none;
+        }
+    }
+}
+
+.footer_social {
+    
+    display: block;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:1;
+    background: $white;
+    padding: 60px 0;
+    height:150px;
+    width:100%;
+    max-width:100%;
+    margin: 0 auto;
+
+    .social-icons {
+
+        text-align:center;
+
+        li {
+
+            margin-right:20px;
+
+            a {
+                border: 1px solid rgba(226, 226, 226, 0.6);
+                line-height:45px;
+                height:45px;
+                width:45px;
+                border-radius:3px;
+            }
+
+            a:hover {
+
+                border:1px solid rgba(255, 125, 14,1);
+            }
+        }
+
+        li:last-child {
+
+            margin-right:0;
+        }
+    }
+}
+
+
+body.boxed .footer_social {
+
+    width:1170px;
+}
+
+
+/*
+=============================================
+=
+= 6.1 About widget ( in footer )
+=
+==============================================================
+*/
+
+
+.cm_about_widget {
+
+    .widget_logo-container {
+
+        margin-bottom:20px;
+
+        h4 {
+
+            font-size:32px;
+        }
+
+        img {
+
+            display:block;
+        }
+    }
+
+    .widget_content_area {
+
+        p {
+
+            margin-bottom:7px;
+        }
+    }
+}
+
+
+
+/*
+=============================================
+=
+= 6.2 Recent posts widget ( footer & sidebar )
+=
+===========================================================
+*/
+
+
+// Recent posts widget in footer
+
+
+.cm_relatedpost_widget .boxes_holder {
+
+    margin-bottom:30px;
+}
+
+.cm_relatedpost_widget .boxes_holder:last-child {
+
+    margin-bottom:0;
+}
+
+.cm_relatedpost_widget .left_box {
+
+    float:left;
+    width:40%;
+} 
+
+.cm_relatedpost_widget .right_box {
+
+    float:left;
+    width:60%;
+    padding-left:20px;
+}
+
+.cm_relatedpost_widget .post_title h2 {
+
+    font-size:16px;
+    font-weight:normal;
+    line-height:1.3;
+}
+
+.cm_relatedpost_widget .post_meta {
+
+    margin-top:5px;
+}
+
+
+
+// Recent posts widget in sidebar 
+
+aside .cm_relatedpost_widget .post_title h2  {
+
+    font-weight:400;
+    font-size:$typo_small;
+    line-height:$body_heading_line_height;
+}
+
+
+
+/*
+=============================================
+=
+= 6.3 Popular posts widget ( footer & sidebar )
+=
+======================================================
+*/
+
+
+// Popular posts widget in footer 
+
+.cm_popularpost_widget .boxes_holder {
+
+    margin-bottom:30px;
+}
+
+.cm_popularpost_widget .boxes_holder:last-child {
+
+    margin-bottom:0;
+}
+
+.cm_popularpost_widget .left_box {
+
+    float:left;
+    width:40%;
+} 
+
+.cm_popularpost_widget .right_box {
+
+    float:left;
+    width:60%;
+    padding-left:20px;
+}
+
+.cm_popularpost_widget .post_title h2 {
+
+    font-size:16px;
+    font-weight:normal;
+    line-height:$body_line_height;
+    letter-spacing: $body_heading_line_height;
+}
+
+.cm_popularpost_widget .post_meta {
+
+    margin-top:5px;
+}
+
+
+// Recent posts widget in sidebar 
+
+aside .cm_popularpost_widget .post_title h2  {
+
+    font-weight:500;
+    font-size:$typo_small;
+    line-height:$body_heading_line_height;
+}
+
+
+
+/*
+=============================================
+=
+= 6.4 Author widget 
+=
+========================================================
+*/
+
+.cm_author_widget {
+
+    .author_thumb img {
+
+        display:block;
+        object-fit:cover;
+        object-position:center;
+        width: 100%;
+        height: auto;
+    }
+
+    .author_name {
+
+        margin: 20px 0px 10px;
+
+        h4 {
+
+            font-size:21px;
+        }
+    }
+
+    .author_desc {
+
+        margin-bottom:30px;
+
+    }
+
+    .author-detail-link {
+
+            margin-top: 15px;
+
+            a {
+                padding: 10px 20px;
+                color: #ffffff;
+                background-color: $secondary_color;
+
+                &:hover,
+                &:focus {
+
+                    background-color: $primary_color;
+                    color:$white;
+            }
+        }
+    }
+}
+
+
+.sidebar-widget-area .widget .cm_author_widget .author-detail-link a,
+.sidebar-widget-area .widget .cm_author_widget .author-detail-link a:hover {
+
+    color:$white;
+}
+
+
+// At footer
+
+
+footer .widget .cm_author_widget .author-detail-link a,
+footer .widget .cm_author_widget .author-detail-link a:hover {
+
+    color:$white;
+}
+
+
+/*
+=============================================
+=
+= 6.5 Trending post widget ( extends post widget eleven )
+=
+=========================================================================
+*/
+
+
+.trending_widget_carousel {
+    
+    position:relative;
+    @extend .cm_post_widget_eleven;
+}
+
+.trending_widget_carousel {
+    
+    .item {
+
+        .card {
+
+            position: relative;
+            min-height: 400px;
+            background-position: center;
+            margin-bottom: 0px;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            .post-holder {
+
+                position: absolute;
+                z-index: 10;
+                padding: 20px;
+                bottom: 0px;
+                right: 0px;
+                left: 0px;
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 40%, black 100%);
+                color: #ffffff;
+
+                a {
+
+                    color: #ffffff;
+                }
+
+                .post_title {
+
+                    h2 {
+
+                        margin-top: 15px;
+                        margin-bottom: 10px;
+                        font-size: $typo_medium;
+                    }
+                }
+            }
+        }
+    }
+
+    .owl-dots {
+
+        margin-top: 15px;
+        text-align: center;
+
+        button.owl-dot {
+
+            height: 15px;
+            width: 15px;
+            background-color: #FF3D00;
+            margin-right: 10px;
+            border-radius: 50%;
+            border: 2px solid #FF3D00;
+        }
+
+        button.owl-dot.active {
+            background-color: #ffffff;
+        }
+    }
+}
+
+.trending_widget_carousel .post-holder {
+
+    padding:0 20px;
+}
+
+.trending_widget_carousel .post_title h2 {
+
+    font-size:$typo_medium;
+}
+
+.trending_widget_carousel .owl-nav {
+
+    @include position_absolute(10px,unset,unset,10px);
+    transform:none;
+
+    button.owl-prev, button.owl-next {
+
+        width:24px;
+        height:24px;
+        line-height:24px;
+
+        i {
+
+            line-height:24px;
+            font-size:14px;
+        }
+    }
+}
+
+
+/*
+=============================================
+=
+= 6.6 Social widget 
+=
+=======================================================
+*/
+
+
+.social_widget_style_1 ul {
+
+    list-style:none;
+}
+
+.social_widget_style_1 ul li {
+
+    display:block;
+}
+
+.social_widget_style_1 ul li a,
+.social_widget_style_1 ul li a i,
+.social_widget_style_1 ul li a span {
+
+    line-height:35px;
+} 
+
+.social_widget_style_1 ul li a {
+
+    display:block;
+    overflow:auto;
+    border:1px solid $border_color;
+    margin-bottom:15px;
+    font-size:14px;
+    font-weight:normal;
+    color:$white;
+
+    &:hover span {
+
+        padding-right:30px;
+    }
+}
+
+.social_widget_style_1 ul li:last-child a {
+
+    margin-bottom:0;
+}
+
+.social_widget_style_1 ul li a i {
+
+    width:50px;
+    display:inline-block;
+    text-align:center;
+    border-right:1px solid rgba(255,255,255,0.1);
+}
+
+.social_widget_style_1 ul li a span {
+
+    text-align:right;
+    display:inline-block;
+    width:calc( 100% - 50px );
+    padding-right:10px;
+    font-size:11px;
+    text-transform:uppercase;
+    font-weight:500;
+    @include transation_delay();
+}
+
+
+// Social icons colors 
+
+.social_widget_style_1 ul li.fb a,
+.social_sharing ul li.fb a {
+
+    background:$facebook;
+    border-color:$facebook;
+}
+
+.social_widget_style_1 ul li.tw a,
+.social_sharing ul li.tw a  {
+
+    background:$twitter;
+    border-color:$twitter;
+}
+
+.social_widget_style_1 ul li.insta a {
+
+    background:$instagram;
+    border-color:$instagram;
+}
+
+.social_widget_style_1 ul li.linken a,
+.social_sharing ul li.linken a  {
+
+    background:$linkedin;
+    border-color:$linkedin;
+}
+
+.social_widget_style_1 ul li.pin a,
+.social_sharing ul li.pin a {
+
+    background:$pinterest;
+    border-color:$pinterest;
+}
+
+.social_widget_style_1 ul li.yt a {
+
+    background:$youtube;
+    border-color:$youtube;
+}
+
+.social_widget_style_1 ul li.gplus a,
+.social_sharing ul li.gplus a {
+
+    background:$googleplus;
+    border-color:$googleplus;
+}
+
+
+.sidebar-widget-area .widget.social_widget_style_1 a,
+.sidebar-widget-area .widget.social_widget_style_1 a:hover {
+
+    color:$white;
+}
+
+
+// Condition footer 
+
+footer .social_widget_style_1 span,
+footer .social_widget_style_1 i,
+footer .social_sharing span,
+footer .social_sharing i,
+footer .social_widget_style_1 ul li.fb a,
+footer .social_sharing ul li.fb a, 
+footer .social_widget_style_1 ul li.tw a,
+footer .social_sharing ul li.tw a,
+footer .social_widget_style_1 ul li.insta a, 
+footer .social_widget_style_1 ul li.linken a,
+footer .social_sharing ul li.linken a,
+footer .social_widget_style_1 ul li.pin a,
+footer .social_sharing ul li.pin a,
+footer .social_widget_style_1 ul li.yt a,
+footer .social_widget_style_1 ul li.gplus a,
+footer .social_sharing ul li.gplus a,
+footer .social_widget_style_1 ul li.fb a:hover, 
+footer .social_sharing ul li.fb a:hover, 
+footer .social_widget_style_1 ul li.tw a:hover,
+footer .social_sharing ul li.tw a:hover,
+footer .social_widget_style_1 ul li.insta a:hover, 
+footer .social_widget_style_1 ul li.linken a:hover,
+footer .social_sharing ul li.linken a:hover,
+footer .social_widget_style_1 ul li.pin a:hover,
+footer .social_sharing ul li.pin a:hover,
+footer .social_widget_style_1 ul li.yt a:hover,
+footer .social_widget_style_1 ul li.gplus a:hover,
+footer .social_sharing ul li.gplus a:hover {
+
+    color:$footer_section_text_color;
+}
+
+
+
+/*
+==============================================
+=
+= Defaults widgets in footer styles 
+=
+=================================================================
+*/
+
+
+footer {
+    
+    .widget {
+
+        .widget-title {
+
+            margin-bottom: 30px;
+
+            h2 {
+
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 1px;
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+
+                &::after {
+
+                    content: '';
+                    position: absolute;
+                    height: 2px;
+                    width: 100%;
+                    top: 50%;
+                    margin-left: 15px;
+                    background-color: $third_color;
+                }
+            }
+        }
+    }
+
+    .widget.widget_search {
+
+        form input[type="submit"]:hover {
+
+            background-color: $secondary_color;
+            border-color: $secondary_color;
+        }
+    }
+
+    .widget_calendar {
+
+        .calendar_wrap caption {
+
+            background-color: $secondary_color;
+            border: transparent;
+            border-bottom: none;
+        }
+    }
+
+    .widget_tag_cloud .tagcloud a {
+
+        background-color: $secondary_color;
+        color: $footer_section_links_color;
+    }
+}
+
+
+// Category drop down widget 
+
+
+footer .widget_categories select, 
+footer .widget_archive select,
+footer .widget_text .textwidget select {
+
+    background-color:#353535;
+    border-color:#353535;
+    color:$footer_section_text_color;
+}
+
+
+// Tags widget in footer 
+
+
+
+footer .widget_tag_cloud .tagcloud a,
+footer .widget_tag_cloud .tagcloud a span, 
+footer .widget_product_tag_cloud .tagcloud a,
+footer .widget_product_tag_cloud .tagcloud a span,
+footer .widget_tag_cloud .tagcloud a:hover, 
+footer .widget_product_tag_cloud .tagcloud a:hover {
+    
+    color:$footer_section_text_color;
+}
+
+
+
+/*
+=====================================
+=
+= #. General sidebar widgets area
+=
+=====================================================
+*/
+
+
+
+.sidebar-widget-area .widget {
+
+    // background-color: rgba(0,0,0,0.05);
+    // padding: 15px;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    .widget-title {
+
+        margin-bottom: 30px;
+
+        h2 {
+            display: inline-block;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 500;
+            line-height:1;
+            letter-spacing:1px;
+            position: relative; 
+            width: 100%; 
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                top: 50%;
+                margin-left: 15px;
+                background-color: $secondary_color;
+            }
+        }
+    }
+
+    &:last-child {
+
+        margin-bottom: 0px;
+    }
+}
+
+
+
+/*
+***************************************************************
+*
+* 19. Breadcrumb
+*
+***************************************************************
+*/
+
+
+.breadcrumb {
+    
+    position:relative;
+    background: rgba(0,0,0,0.03);
+    padding: 7px 20px; 
+
+    ul {
+
+        list-style:none;
+
+        li {
+
+            display:inline-block;
+
+            a,span {
+                
+                position: relative;
+                display:inline-block;
+                font-size:16px;
+                color:#777;
+                text-transform:capitalize;
+                letter-spacing: 0;
+            }
+
+            a:hover {
+
+                color:$secondary_color;
+            }
+            
+            a:after {
+
+                content:'\f105';
+                font-family:'fontAwesome';
+                padding:0 10px;
+                color:#777;
+            }
+
+        }
+
+        li:first-child {
+
+            a {
+
+                font-size:0;
+            }
+
+            a:before {
+
+                content:"\f015";
+                font-family:'fontAwesome';
+                font-size:16px;
+                padding:0;
+                color:inherit;
+            }
+        }
+
+        li:last-child {
+
+            padding-right:0;
+
+            span {
+                
+                color:$secondary_color;
+            }
+
+            a {
+
+                color:$secondary_color;
+            }
+        }
+    }
+}
+
+
+.breadcrumb::after {
+
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 11;
+    left: 15px;
+    bottom: -26px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 13px 12px;
+    border-color: transparent transparent rgba(0,0,0,0.03) transparent;
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+
+/*
+***************************************************************
+*
+* 20. 404 Page 
+*
+***************************************************************
+*/
+
+.error_page {
+
+    text-align:center;
+    margin-top:70px;
+    margin-bottom: 50px;
+
+    #search-form {
+        width: 60%;
+        margin: auto;
+    }
+}
+
+
+.error_page_top_portion {
+
+    background:$secondary_color;
+    padding:60px 30px;
+    margin-bottom:50px;
+    border-radius:10px;
+}
+
+.error_head h3 {
+    
+    position:relative;
+    z-index:1;
+    font-family:'Halvetica', 'Halvetica-Nue', 'Arial', 'Sans-serif';
+    font-weight:900;
+    font-size:93px;
+    color:$white;
+    margin-bottom:0;
+}
+
+.error_head h4 {
+
+    position:relative;
+    font-size:18px;
+    font-family:'Halvetica', 'Halvetica-Nue', 'Arial', 'Sans-serif';
+    z-index:1;
+    color:$white;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.error_body {
+
+   margin-top:20px;
+}
+
+.error_body p {
+
+    color:$white;
+}
+
+.error_foot form {
+
+    overflow:hidden;
+    margin-top:30px;
+
+    input {
+
+        float:left;
+        display:block;
+        height:53px;
+        border:1px solid $border_color;
+        border-right:none;
+    }
+
+    input[type="search"],
+    input[type="text"] {
+
+        width: calc( 100% - 120px);
+        padding-left: 10px;
+    }
+
+    input[type="submit"] {
+        
+        color:$white;
+        text-align:center;
+        width:120px;
+        font-size:16px;
+        font-weight:500;
+        background:$secondary_color;
+        outline:none;
+        border:1px solid $secondary_color;
+        @include transation_delay();
+    }
+
+    input[type="submit"]:hover {
+
+        border:1px solid $primary_color;
+        background:$primary_color;
+    }
+}
+
+
+
+/*
+***************************************************************
+*
+* 21. Single Post page classic layout
+*
+***************************************************************
+*/
+
+
+.cm_post_page_lay_wrap .content-entry .the_title {
+    
+    margin-bottom: 30px;
+}
+
+.cm_post_page_lay_wrap .content-entry .post_thumb {
+    
+    margin-bottom: 30px;
+}
+
+
+/*
+=============================================
+=
+= 21.1 Single classic ( video & audio formate )
+=
+========================================================
+*/
+
+
+.cm_classic_page  .content-entry .post_thumb iframe,
+.cm_classic_page  .content-entry .post_thumb video,
+.cm_classic_page  .content-entry .post_thumb audio {
+    
+    display:block;
+    max-width:100%;
+    border:none;
+    min-height: 300px;
+}
+
+.cm_classic_page  .content-entry .post_thumb audio {
+    
+    min-height:30px;
+}
+
+
+/*
+=============================================
+=
+= 21.2 Single classic ( gallery formate )
+=
+===========================================================
+*/
+
+.gallery-format-carousel {
+
+    position:relative;
+
+    .item {
+
+        overflow: hidden;
+    }
+
+}
+
+.gallery-format-carousel .owl-nav {
+
+    position:absolute;
+    top:30px;
+    right:30px;
+}
+
+
+/*
+=============================================
+=
+= 21.3 Single classic ( link formate )
+=
+===========================================================
+*/
+
+
+.link_formate {
+
+    border:1px solid $border_color;
+    padding:30px;
+}
+
+.link_formate a {
+    
+    display:inline-block;
+    text-transform:capitalize;
+    line-height: 50px;
+
+}
+
+.link_formate a:before {
+    
+    content:'\f08e';
+    font-family:'fontAwesome';
+    display:inline-block;
+    text-align:center;
+    margin-right:20px;
+    background:$secondary_color;
+    width: 50px;
+    height: 50px;
+    color:$white;
+}
+
+
+/*
+=============================================
+=
+= 21.4 Single classic ( quote formate )
+=
+============================================================
+*/
+
+
+.quote_formate {
+
+    position:relative;
+    padding:60px 0 30px 60px;
+}
+
+.quote_formate::before {
+
+    content:'\f10d';
+    font-family:'fontAwesome';
+    position:absolute;
+    left:0;
+    top:0;
+    font-size:42px;
+    color:$secondary_color;
+}
+
+.quote_formate p {
+
+    font-style: italic;
+    line-height:1.9em;
+}
+
+
+
+/*
+=============================================
+=
+= 21.5 Social sharing
+=
+========================================================
+*/
+
+
+.social-share,
+.post_tags {
+
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.social-share {
+        
+    .social-share-title {
+
+        font-size: $typo_medium;
+        margin-bottom: 15px;
+    }
+}
+
+.social-share span,
+.post_tags span {
+    
+    position:relative;
+    display:block;
+    font-size:18px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+    overflow: hidden;
+}
+
+.social-share span::after,
+.post_tags span::after {
+
+    // content: '';
+    // position: absolute;
+    // height: 2px;
+    // width: 100%;
+    // top: 50%;
+    // margin-left: 15px;
+    // background-color: #FF3D00;
+}
+
+.social-share ul li {
+
+    margin-right:10px;
+}
+
+.social-share ul li:last-child {
+
+    margin-right:0;
+}
+
+.social-share ul li a {
+
+    height:40px;
+    width:40px;
+    line-height:40px;
+    border:1px solid $border_color;
+    border-radius: 50%;
+}
+
+.social-share ul li a:hover {
+
+    border:1px solid $secondary_color;
+}
+
+
+
+/*
+=============================================
+=
+= 21.6 Post Tags
+=
+=====================================================
+*/
+
+
+.post_tags a {
+     
+    position:relative;       
+    display:inline-block;
+    background:$secondary_color;
+    padding: 4px 30px;
+    margin:2px;
+    text-transform:capitalize;
+    color:$white;  
+}
+
+.post_tags a::before {
+
+    content:'\e8d2';
+    font-family:'feather';
+    margin-right: 5px;
+}
+
+.post_tags a:hover {
+
+    background:$primary_color;
+    color:$white;
+}
+
+
+
+
+/*
+=============================================
+=
+= 21.7 Author box 
+=
+=======================================================
+*/
+
+.author_box {
+
+    margin-bottom: 30px;
+    padding: 20px;
+    // border:1px solid $border_color;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.author_box .author_thumb img {
+
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    @include border_radius(100%);
+}
+
+.author_box .author_name,
+.author_box  .author_desc {
+
+    margin-bottom:15px;
+}
+
+.author_box .author_name {
+    
+    h3 {
+        text-transform: capitalize;
+        font-size:21px;
+    }
+}
+
+.author_box  .author_social ul {
+
+    margin-left:-10px;
+}
+
+.author_box  .author_social ul li {
+
+    margin-right:10px;
+}
+
+.author_box  .author_social ul li:last-child {
+
+    margin-right:0;
+}
+
+
+
+/*
+=============================================
+=
+= 21.8 Post navigation 
+=
+=======================================================
+*/
+
+
+
+.post-navigation {
+
+    margin: 40px 0;
+}
+
+.post-navigation .nav-links {
+    
+    height: auto;
+    overflow: hidden;
+}
+
+
+.post-navigation .nav-links .nav-previous {
+
+    float: left;
+}
+
+.post-navigation .nav-links .nav-next {
+
+    float: right;
+}
+
+.post-navigation .nav-links .nav-previous a,
+.post-navigation .nav-links .nav-next a {
+    
+    display:block;
+    position:relative;
+    font-weight:500;
+    letter-spacing:1.35px;
+    font-size: 14px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: $secondary_color;
+}
+
+.post-navigation .nav-links .nav-previous a::before {
+
+    content:"\f177";
+    font-family:'FontAwesome';
+    margin-right: 15px;
+}
+
+.post-navigation .nav-links .nav-next a::after {
+    
+    content:"\f178";
+    font-family:'FontAwesome';
+    margin-left: 15px;
+}
+
+
+
+
+/*
+=============================
+=
+= Related posts 
+=
+============================================
+*/
+
+
+
+.cm_related_post_container {
+
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+.cm_related_post_container .lazy-thumb {
+
+    padding-bottom:56.25%;
+}
+
+.cm_related_post_container .card_content {
+
+    padding: 20px;
+    background-color: rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,.03);
+}
+
+.cm_related_post_container .post-format span {
+    background-color: $primary_color;
+    border-color: $primary_color;
+    color:$white;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    padding: 0px;
+}
+
+.cm_related_post_container .post_title h2 {
+
+    font-size:$typo_medium;
+    margin-top:10px;    
+}
+
+.cm_related_post_container .post_meta {
+
+    margin-top:5px;
+}
+
+.standard-post-media {
+    
+    margin-top: 45px;
+}
+
+
+
+/*
+***************************************************************
+*
+* 22. Single Post page modern layout
+*
+***************************************************************
+*/
+
+.cm_modern_page .breadcrumb::after {
+
+    display:none;
+}
+
+.cm_modern_page .breadcrumb {
+
+    padding: 40px 20px;
+    background-attachment:fixed;
+    background-size:cover;
+    background-color: $primary_color;
+    background-repeat:no-repeat;
+    background-position:center center;
+
+}
+
+.cm_modern_page .breadcrumb .mask {
+
+    background:rgba(238, 117, 13, 0.7);
+}
+
+.cm_modern_page .breadcrumb ul {
+
+    position:relative;
+    z-index:5;
+}
+
+.cm_modern_page .breadcrumb ul li a, 
+.cm_modern_page .breadcrumb ul li span,
+.cm_modern_page .breadcrumb ul li a:before {
+
+    color:$white;
+}
+
+.cm_modern_page .modern_post_thumb {
+    
+    position: relative;
+    margin-bottom:30px;
+   
+}
+
+.cm_modern_page .modern_post_thumb.bg {
+
+    min-height:350px;
+    background: $primary_color;
+}
+
+.cm_modern_page .modern_post_thumb:hover .mask {
+
+    background:rgba(0,0,0,0.6);
+}
+
+.cm_modern_page .modern_post_thumb .post-holder {
+    
+    display:block;
+    @include position_absolute(50%,auto,auto,auto);
+    text-align:center;
+    width:100%;
+    padding:0 30px;
+}
+
+.cm_modern_page .modern_post_thumb .post-holder {
+
+    * {
+
+        color:$white;
+    }
+
+    .the_title h2 {
+
+        font-weight:bold;
+    }
+
+    .post_meta {
+
+        a:hover {
+
+            color:$secondary_color;
+        }
+    }
+}
+
+
+/*
+=================================================
+=
+= 22.1 Single post page Modern ( Video & Audio )
+=
+==============================================================
+*/
+
+.cm_modern_page .modern_post_thumb iframe,
+.cm_modern_page .modern_post_thumb audio, 
+.cm_modern_page .modern_post_thumb video {
+
+    min-height:350px;
+    width:100%;
+    max-width:100%;
+}
+
+
+
+/*
+***************************************************************
+*
+* 23. Pagination 
+*
+***************************************************************
+*/
+
+
+.pagination .page-numbers {
+
+    display: inline-block;
+    font-size:16px;
+    margin-right: 10px;
+    border-radius:0;
+    text-align: center;
+    border: 1px solid $border_color;
+    line-height: 45px;
+    width: 45px;
+    height: 45px;
+}
+
+.pagination .page-numbers:hover {
+
+    border:1px solid $secondary_color;
+}
+
+.pagination .page-numbers:last-child {
+
+    margin-right:0;
+}
+
+.pagination .page-numbers.current {
+
+    background: $secondary_color;
+    color: $white;
+    border: none;
+}
+
+.pagination .page-numbers.next,
+.pagination .page-numbers.prev {
+
+    width: auto;
+    padding: 0 30px;
+    text-transform:uppercase;
+}
+
+
+
+/*
+***************************************************************
+*
+* 24. Archive / List page 
+*
+***************************************************************
+*/
+
+
+.archive-description {
+    
+    margin-top: 30px;
+}
+
+.cm_archive_page .section-title h2,
+.cm_search_page .section-title h2,
+.cm_not_found_page .section-title h2 {
+    
+    display: block;
+    font-size:18px;
+    background:transparent;
+    font-weight:bold;
+    color:$primary_color;
+}
+
+
+.cm_archive_page h2.list_head span,
+.cm_search_page h2.list_head span,
+.cm_not_found_page h2.list_head span {
+
+    color:$secondary_color;
+}
+
+
+
+/*
+***************************************************************
+*
+* #. Blog listing styles 
+*
+***************************************************************
+*/
+
+
+
+/*
+====================================
+=
+= #. Blog listing grid style
+=
+===================================================
+*/
+
+
+
+.post-display-grid {
+
+    margin-bottom:20px;
+
+}
+
+.post-display-grid .lazy-thumb {
+
+    padding-bottom:56.25%;
+}
+
+.post-display-grid .card_content {
+
+    padding: 20px;
+    background-color: rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,.03);
+}
+
+.post-display-grid .post-format span {
+
+    background-color: $primary_color;
+    border-color: $primary_color;
+    color:$white;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    padding: 0px;
+}
+
+.post-display-grid .post_title h2 {
+
+    font-size:$typo_medium;
+    margin-top:10px;    
+}
+
+.post-display-grid .post_meta {
+
+    margin-top:5px;
+}
+
+
+
+/*
+====================================
+=
+= #. Blog listing List style 
+=
+===================================================
+*/
+
+
+
+.post-display-list {
+
+    .boxes_holder {
+
+        margin-bottom: 30px;
+
+        &::last-child {
+
+            margin-bottom: 0px;
+        }
+
+        .right_box {
+
+            .post-format {
+
+                span {
+
+                    background-color: $primary_color;
+                    border-color: $primary_color;
+                    color:$white;
+                    text-align: center;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    padding: 0px;
+                }
+            }
+
+            .post_title {
+
+                h2 {
+
+                    font-size: 21px;
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*
+***************************************************************
+*
+* 25. Search page 
+*
+***************************************************************
+*/
+
+
+.cm_search_page h2.list_head {
+
+    font-size:$typo_medium;
+}
+
+
+/*
+***************************************************************
+*
+* 26. Nothing found page 
+*
+***************************************************************
+*/
+
+.nothing-found {
+    
+    margin-bottom: 60px;
+}
+
+.cm_not_found_page h2.list_head {
+
+    font-size:$typo_medium;
+}
+
+
+.cm_not_found_page .error_foot p {
+
+    margin-bottom:30px;
+}
+
+
+
+/*
+***************************************************************
+*
+* 27. All default widget  
+*
+***************************************************************
+*/
+
+
+.sidebar-widget-area {
+    
+    .widget {
+    
+        background-color: rgba(0,0,0,0.03);
+        padding: 30px 20px;
+    }
+}
+
+.footer-widget-container {
+    
+    .widget{
+
+        margin-bottom: 30px;
+    }
+}
+
+
+.widget_archive ul,
+.widget_categories ul,
+.widget_recent_entries ul,
+.widget_meta ul,
+.widget_recent_comments ul,
+.widget_rss ul,
+.widget_pages ul,
+.widget_nav_menu ul {
+
+    list-style: none;
+    margin: 0;
+    //overflow:hidden;
+}
+
+.widget_product_categories ul {
+
+    margin-left: 0;
+}
+
+.widget_archive li,
+.widget_categories li,
+.widget_recent_entries li,
+.widget_meta li,
+.widget_recent_comments li,
+.widget_rss li,
+.widget_pages li,
+.widget_nav_menu li {
+
+    position: relative;
+    border-bottom: 1px solid $border_color;
+    padding: 13px 0;
+    transition-duration: 0.6s;
+    //text-align: left;
+
+    &:hover,
+    &:focus {
+
+        padding-left: 10px;
+        transition-duration: 0.6s;
+    }
+
+
+}
+
+.widget_archive ul li:first-child,
+.widget_categories ul li:first-child,
+.widget_pages ul li:first-child,
+.widget_meta ul li:first-child,
+.widget_rss li:first-child,
+.widget_recent_entries li:first-child,
+.widget_recent_comments li:first-child {
+
+    padding-top: 0;
+}
+
+.widget_archive a,
+.widget_categories a,
+.widget_recent_entries a,
+.widget_meta a,
+.widget_recent_comments li,
+.widget_rss li,
+.widget_nav_menu a {
+
+    position: relative;
+    display:inline-block;
+    //float:left;
+    @include transation_delay();
+}
+
+
+// Spacing ( pading left ) on widgets
+
+.widget_recent_entries a {
+
+    display: block;
+}
+
+
+
+.widget_recent_comments li a {
+
+    display: inline-block;
+}
+
+
+.widget_pages li.menu-item-has-children ul.sub-menu,
+.widget_categories li.menu-item-has-children ul.sub-menu {
+
+    margin-left:15px;
+    padding-top:15px;
+    padding-bottom:5px;
+}
+
+
+
+
+.widget_nav_menu {
+    
+    ul.menu {
+
+        list-style: none;
+
+        li.menu-item-has-children {
+
+            border-bottom: none;
+            padding-bottom: 0px; 
+
+            > a {
+                display: block;
+                padding-bottom: 15px;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            ul.sub-menu {
+
+                list-style: none;
+                margin-left: 15px;
+                padding-top: 15px;
+
+                li:first-child {
+
+                    padding-top: 0px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.widget_text {
+    
+    .textwidget {
+
+        ul, ol {
+
+            margin-left: 15px;
+            margin-top: 10px;
+
+            li {
+
+                padding-bottom: 10px;
+
+                ul {
+
+                    li:first-child {
+
+                        padding-top: 10px;
+                    }
+
+                    li:last-child {
+
+                        padding-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.widget_categories,
+.widget_archive {
+        
+    select {
+
+        height: 45px;
+        width: 100%;
+        border-color: $border-color;
+        border-radius: 0px;
+        background-color: #ffffff;
+        padding-left: 5px;
+    }
+}
+
+
+/*
+===================================
+=
+= 19.1 Nav menus widget
+=
+=============================================
+*/
+
+
+.widget_nav_menu li:last-child a {
+
+    border-bottom:none;
+}
+
+
+/*
+=============================================
+=
+= 19.2 Recent posts widget 
+=
+=========================================================
+*/
+
+.widget_recent_entries .post-date {
+
+    color: $special_purpose_color;
+    display: block;
+    margin-top: 5px;
+    padding-left: 0px;
+}
+
+
+/*
+=============================================
+=
+= 19.3 Archive widget 
+=
+==========================================================
+*/
+
+
+.widget_archive label {
+
+    display:block;
+    margin-bottom: 10px;
+}
+
+
+/*
+=============================================
+=
+= 19.4 Category widget
+=
+============================================================
+*/
+
+
+.widget_categories label {
+
+    display:block;
+    margin-bottom: 10px;
+}
+
+
+/*
+=============================================
+=
+= 19.5 Rss widget
+=
+===============================================================
+*/
+
+
+.widget_rss .widget-title h3 a {
+
+    color:$white;
+
+    &:hover {
+
+        color:$secondary_color;
+    }
+}
+
+.widget_rss .widget-title h2 img {
+
+    display:none;
+}
+
+.widget_rss ul li a {
+
+    color:$secondary_color;
+    font-style: italic;
+
+    &:hover {
+
+        color:$primary_color;
+    }
+}
+
+
+/*
+=============================================
+=
+= 19.6 Search widget
+=
+=============================================================
+*/
+
+
+.widget_search {
+
+    @extend .error_foot;
+    display:block;
+}
+
+.widget_search form {
+    
+    display:block;
+    position:relative;
+    z-index:5;
+    left:auto;
+    top:auto;
+    right:auto;
+    box-shadow:none;
+    padding: 0;
+    border-top: none;
+    animation:none;
+    margin:0;
+}
+
+.widget_search form input[type="submit"] {
+
+    width:100px;
+}
+
+.widget_search form input[type="search"] {
+
+    width:calc( 100% - 100px);
+}
+
+
+/*
+=============================================
+=
+= 19.7 Calender widget 
+=
+============================================================
+*/
+
+
+.calendar_wrap caption {
+
+    background: none repeat scroll 0 0 $primary_color;
+    color: $white;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.calendar_wrap table {
+
+    border-collapse: collapse;
+    width: auto;
+}
+
+.calendar_wrap table th {
+
+    border: 1px solid $border_color;
+    font-weight: bold;
+    padding: 8px 0px;
+    text-align: center;
+    width: 5%
+}
+
+.calendar_wrap table td {
+
+    border: 1px solid $border_color;
+    padding: 8px 0px;
+    width: 5%;
+    text-align: center;
+}
+
+.calendar_wrap table td#prev,
+.calendar_wrap table td#next {
+
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.calendar_wrap table td#next {
+
+    text-align: right;
+}
+
+
+
+/*
+=============================================
+=
+= 19.8 Text widget 
+=
+==============================================================
+*/
+
+
+
+.widget_text {
+
+    .textwidget {
+
+        pre,
+        code,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+
+            display: block;
+            padding: 5px 0;
+        }
+
+        img {
+
+            display: block;
+            padding: 5px 0;
+        }
+
+        select {
+
+            display: block;
+            outline: none;
+            width: 100%;
+            max-width: 100%;
+            padding: 10px;
+            text-transform: capitalize;
+            border-radius: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            option {
+
+                display: block;
+                width:100%;
+                max-width: 100%;
+                white-space: nowrap;
+            }
+        }
+
+        form {
+
+            overflow: hidden;
+        }
+    }
+}
+
+
+
+/*
+=============================================
+=
+= 19.9 Tags cloud widget 
+=
+==========================================================
+*/
+
+
+.widget_tag_cloud .tagcloud {
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin:-5px -2px;
+}
+
+.widget_tag_cloud .tagcloud a {
+    
+    flex: 1 auto;
+    text-transform:capitalize;
+    font-size:15px !important;
+    text-align:center;
+    letter-spacing:1px;
+    padding: 5px 15px;
+    margin:2px;
+    background: rgba(0,0,0,.05);;
+    font-weight:400;
+
+    &:hover {
+        
+        color:$white;
+        background:$secondary_color;
+    }
+}
+
+.sidebar-widget-area .widget_tag_cloud .tagcloud a:hover,
+.sidebar-widget-area .widget_product_tag_cloud .tagcloud a:hover {
+    
+    color:$white;
+}
+
+
+/*
+***************************************************************
+*
+* 20. Comment box 
+*
+***************************************************************
+*/
+
+
+#comments {
+
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+
+
+#comments footer {
+
+    background: transparent;
+}
+
+#comments h2.comments-title {
+
+    position: relative;
+    font-size: 24px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+#comments h2.comments-title:after {
+
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #FF3D00;
+}
+
+
+#comments div#respond {
+
+    background: transparent;
+    overflow: hidden;
+}
+
+
+#comments div#respond h3#reply-title {
+
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+#comments div#respond h3#reply-title::after {
+
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    margin-left: 15px;
+    background-color: #FF3D00;
+}
+
+#comments form p.comment-notes {
+
+    padding-bottom: 30px;
+    display: block;
+}
+
+#comments form label {
+
+    display: block;
+    padding-bottom: 15px;
+    margin: 0;
+    font-weight: 400;
+    color: $primary_color;
+}
+
+#comments form input,
+#comments form textarea {
+
+    position: relative;
+    height: 38px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    color: $primary_color;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid $border_color;
+    border-radius: 0px;
+    outline: none;
+}
+
+
+#comments form textarea {
+
+    height: 150px;
+}
+
+#comments form input[type="submit"] {
+
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+#comments form input[type="submit"] {
+
+    display: inline-block;
+    width: 150px;
+    background: $secondary_color;
+    color: $white;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid $secondary_color;
+    padding: 0;
+    line-height: inherit;
+}
+
+#comments form input[type="submit"]:hover {
+
+    background: $primary_color;
+    color: $white;
+    border: 1px solid $primary_color;
+}
+
+#comments ul,
+#comments ol {
+
+   list-style:none; 
+}
+
+#comments ol.comment-list {
+    
+    margin-bottom: 60px;
+}
+
+#comments ol.comment-list article.comment-body {
+    
+    margin-bottom: 15px;
+}
+
+#comments ol.comment-list article.comment-body:last-child { 
+    
+    margin-bottom: 0px;
+}
+
+#comments ol.comment-list div#respond {
+    
+    margin-top: 15px;
+
+    h3#reply-title {
+        margin-bottom: 10px;
+    }
+
+    .comment-form {
+
+        input#submit {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+#comments ol.comment-list li {
+
+    margin-bottom: 30px;
+
+    ol.children {
+
+        margin: 30px 0px 0px 30px;
+
+        li:last-child {
+            margin-bottom: 0px;
+        }
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+#comments ol.comment-list li article footer.comment-meta {
+
+    padding-bottom: 20px;
+}
+
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard img {
+
+    float: left;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard b {
+
+    position: relative;
+    display: inline-block;
+    padding-left: 15px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: $primary_color !important;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing:0;
+
+    a {
+        color: $primary_color !important;
+
+        &:hover {
+            color: $secondary_color;
+        }
+    }
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-author.vcard span {
+    color: $primary_color !important;
+}
+
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata {
+
+    padding-left: 60px;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata a {
+
+    text-transform: capitalize;
+    font-size: 14px;
+    padding-right: 10px;
+    font-weight: 400;
+    color: $primary_color;
+    letter-spacing:0;
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata span.edit-link a {
+
+    position: relative;
+
+    &:hover {
+        color: $secondary_color;
+    }
+}
+
+#comments ol.comment-list li article footer.comment-meta .comment-metadata span.edit-link a:before {
+
+    content: '\e915';
+    font-family: 'feather';
+    padding-right: 10px;
+}
+
+#comments ol.comment-list li article .comment-content {
+
+    padding-bottom: 10px;
+}
+
+#comments ol.comment-list li article .comment-content p {
+
+    line-height: 1.5;
+}
+
+#comments ol.comment-list li article .comment-content p a {
+
+    color: $primary_color;
+    font-weight: 500;
+}
+
+#comments ol.comment-list li article .reply a {
+
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: $primary_color;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing:0;
+
+    &:hover {
+        color: $secondary_color;
+    }
+}
+
+#comments p.comment-form-cookies-consent {
+
+    text-align:left;
+    margin-top:10px;
+
+    input[type="checkbox"] {
+
+        display:inline-block;
+        width:13px;
+        height:13px;
+    }
+
+    label {
+
+        display:inline-block;
+        padding-left:15px;
+        line-height:13px;
+    }
+}
+
+
+/*
+***************************************************************
+*
+* 28. Contact form 7
+*
+***************************************************************
+*/
+
+
+.wpcf7 label {
+
+    display: block;
+    margin-bottom: 15px;
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="url"],
+.wpcf7 input[type="password"],
+.wpcf7 input[type="search"],
+.wpcf7 textarea,
+.wpcf7 select {
+
+    width: 100%;
+    padding: 7px;
+    margin-top: 10px;
+    border: 1px solid $border_color;
+    border-radius:3px;
+}
+
+.wpcf7 input[type="submit"],
+.wpcf7 input[type="button"] {
+
+    background-color: $secondary_color;
+    border: 1px solid $secondary_color;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    font-size: 14px;
+    color: $white;
+    @include transation_delay();
+}
+
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 input[type="button"]:hover {
+
+    background: $primary_color;
+    border: 1px solid $primary_color;
+}
+
+
+
+
+
+
+
+

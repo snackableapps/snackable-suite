@@ -83,8 +83,55 @@ function sidebar_plugin_script_enqueue() {
 }
 add_action( 'enqueue_block_editor_assets', 'sidebar_plugin_script_enqueue' );
 
-register_meta( 'post', 'snackable_quiz_topics', array(
-    'show_in_rest' => true,
-    'single' => true,
-    'type' => 'string',
-) );
+// Chop up Gutenberg blocks
+add_action(
+	'rest_api_init',
+	function () {
+
+		if ( ! function_exists( 'use_block_editor_for_post_type' ) ) {
+			require ABSPATH . 'wp-admin/includes/post.php';
+		}
+
+		// Surface all Gutenberg blocks in the WordPress REST API
+		$post_types = get_post_types_by_support( [ 'editor' ] );
+		foreach ( $post_types as $post_type ) {
+			if ( use_block_editor_for_post_type( $post_type ) ) {
+				register_rest_field(
+					$post_type,
+					'blocks',
+					[
+						'get_callback' => function ( array $post ) {
+							return parse_blocks( $post['content']['raw'] );
+						},
+					]
+				);
+			}
+		}
+	}
+);
+
+// Add quiz custom post type
+add_action( 'init', function () {
+ 
+	$labels = array(
+		'name' => 'Snackable Quizes',
+		'signular_name' => 'Snackable Quiz'
+	);
+ 
+	$args = array(
+		'labels'             => $labels,
+		'description'        => __( 'Snackable Quiz', 'A post type representing a personality quiz' ),
+		'public'             => true,		
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments',  'custom-fields' ),
+		'show_in_rest'       => true,
+	);
+ 
+	register_post_type( 'snackable_quiz', $args );
+
+	register_meta( 'post', 'snackable_quiz_topics', array(
+		'show_in_rest' => true,
+		'single' => true,
+		'type' => 'string',
+	) );
+	
+} );
