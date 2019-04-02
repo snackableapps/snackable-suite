@@ -5,65 +5,121 @@
  * Simple block, renders and saves the same content without any interactivity.
  */
 
+
+
+const { __ } = wp.i18n;
+const { registerBlockType,  } = wp.blocks;
+const { InnerBlocks } = wp.editor;
+const { Component } = wp.element;
+const { TextControl } = wp.components;
+const { withSelect } = wp.data;
 //  Import CSS.
 import './style.scss';
 import './editor.scss';
 
-const { __ } = wp.i18n; // Import __() from wp.i18n
-const { registerBlockType,  } = wp.blocks; // Import registerBlockType() from wp.blocks
-const { InnerBlocks } = wp.editor;
-const { Component } = wp.element;
-const { select } = wp.data;
 
+class SnackableQuizEditBlock extends Component {
+	constructor( props ) {
+		super(props);
 
-/**
- * Register: aa Gutenberg Block.
- *
- * Registers a new block provided a unique name and an object defining its
- * behavior. Once registered, the block is made editor as an option to any
- * editor interface where blocks are implemented.
- *
- * @link https://wordpress.org/gutenberg/handbook/block-api/
- * @param  {string}   name     Block name.
- * @param  {Object}   settings Block settings.
- * @return {?WPBlock}          The block, if it has been successfully
- *                             registered; otherwise `undefined`.
- */
+		this.state = {
+			choices: {}
+		}
+
+		this.props.attributes.choices.forEach((e) => {
+			const {id} = e; 
+			this.state.choices[id] = e;
+		});
+	}
+
+	saveChoice(id, name) {
+		let newChoices = Object.assign({}, this.state.choices);
+		newChoices[id] = {
+			id, name
+		};
+		
+		this.props.setAttributes( { 'choices': Object.values(newChoices) } );
+
+		this.setState({
+			choices: newChoices
+		});
+	}
+
+	render( ) {
+		const props = this.props; 
+		const { attributes, setAttributes } = props;
+		const { choices } = this.state;
+
+		const saveChoice = this.saveChoice.bind(this);
+
+		return <div className="snackable-quiz-question">
+			<p><TextControl type="text" 
+				value={attributes.question}
+				onChange={( val ) => {
+					setAttributes( { question:  val } );
+				}}
+				/> 
+			</p>
+			<table> 
+				{ props.topics.map( ({id, topic}) => <tr>
+					<td>
+							<code>{ topic }</code>
+					</td>
+					<td>
+						<TextControl
+							className="question-input"
+							placeholder="Please enter a question here"
+							value={ ( choices[id] || {  name: null }).name }
+							onChange={( val ) => {
+								saveChoice(id, val)
+							}}
+						type="text" /> 
+					</td>
+				</tr>)} 
+			</table>
+		</div>;
+	}
+}
+
+registerBlockType('snackable/block-snackable-quiz-results', {
+	title: __( 'Snackable Quiz - Quiz Results' ),
+	icon: 'shield',
+	category: 'common',
+	keywords: ['quiz', 'snackable'],
+	edit: () => <div className="snackable-quiz-results">Results will be displayed here</div>, 
+	save: () => null
+})
+
 registerBlockType( 'snackable/block-snackable-quiz', {
-	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Snackable Quiz - Quiz Item' ), // Block title.
-	icon: 'shield', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	title: __( 'Snackable Quiz - Quiz Item' ),
+	icon: 'shield',
+	category: 'common',
 	keywords: [
 		__( 'Snackable Quiz - Quiz Item' )
 	],
 
-	/**
-	 * The edit function describes the structure of your block in the context of the editor.
-	 * This represents what the editor will render when the block is used.
-	 *
-	 * The "edit" property must be a valid function.
-	 *
-	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-	 */
-	edit: ( props ) => {
-			return <div>
-				<section>
-					<p>Dankmeme </p>
-				</section>
-				<div>
-					<InnerBlocks />
-				</div>
-			</div>
+	attributes: {
+		question: {
+			type: 'string',
 		},
+		choices: {
+			type: 'array',
+			query: {
+				id: {
+					type: 'string'
+				},
+				name: {
+					type: 'string'
+				}
+			}
+		}
+	},
 
-	/**
-	 * The save function defines the way in which the different attributes should be combined
-	 * into the final markup, which is then serialized by Gutenberg into post_content.
-	 *
-	 * The "save" property must be specified and must be a valid function.
-	 *
-	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
-	 */
+	edit: withSelect( (select) => {
+		return {
+			topics: select('snackable/quiz').getTopics()
+		}
+	})(SnackableQuizEditBlock),
+
 	save: () => null
 } );

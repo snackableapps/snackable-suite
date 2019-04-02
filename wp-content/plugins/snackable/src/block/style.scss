@@ -1,14 +1,7 @@
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
 
-.wp-block-cgb-block-snackable-quiz  {
-  background: $red;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.snackable-quiz-question {
+  padding: 15px; 
+  font-display: sans-serif;
+  border: 3px solid #ddd;
+  border-radius: 1em;
 }
