@@ -26,7 +26,10 @@ class SnackableQuizEditBlock extends Component {
 			choices: {}
 		}
 
-		this.props.attributes.choices.forEach((e) => {
+		let { attributes } = this.props;
+		let choices = attributes.choices || [];
+		
+		choices.forEach((e) => {
 			const {id} = e; 
 			this.state.choices[id] = e;
 		});
